@@ -1,0 +1,137 @@
+[
+    {
+        "classificationCode": "001 - Breastfeeding equipment"
+    },
+    {
+        "classificationCode": "002 - Child care centres and kindergartens fees"
+    },
+    {
+        "classificationCode": "003 - Computer, smartphone or tablet"
+    },
+    {
+        "classificationCode": "004 - Consolidated e-Invoice"
+    },
+    {
+        "classificationCode": "005 - Construction materials (as specified under Fourth Schedule of the Lembaga Pembangunan Industri Pembinaan Malaysia Act 1994)"
+    },
+    {
+        "classificationCode": "006 - Disbursement"
+    },
+    {
+        "classificationCode": "007 - Donation"
+    },
+    {
+        "classificationCode": "008 - e-Commerce - e-Invoice to buyer / purchaser"
+    },
+    {
+        "classificationCode": "009 - e-Commerce - Self-billed e-Invoice to seller, logistics, etc."
+    },
+    {
+        "classificationCode": "010 - Education fees"
+    },
+    {
+        "classificationCode": "011 - Goods on consignment (Consignor)"
+    },
+    {
+        "classificationCode": "012 - Goods on consignment (Consignee)"
+    },
+    {
+        "classificationCode": "013 - Gym membership"
+    },
+    {
+        "classificationCode": "014 - Insurance - Education and medical benefits"
+    },
+    {
+        "classificationCode": "015 - Insurance - Takaful or life insurance"
+    },
+    {
+        "classificationCode": "016 - Interest and financing expenses"
+    },
+    {
+        "classificationCode": "017 - Internet subscription"
+    },
+    {
+        "classificationCode": "018 - Land and building"
+    },
+    {
+        "classificationCode": "019 - Medical examination for learning disabilities and early intervention or rehabilitation treatments of learning disabilities"
+    },
+    {
+        "classificationCode": "020 - Medical examination or vaccination expenses"
+    },
+    {
+        "classificationCode": "021 - Medical expenses for serious diseases"
+    },
+    {
+        "classificationCode": "022 - Others"
+    },
+    {
+        "classificationCode": "023 - Petroleum operations (as defined in Petroleum (Income Tax) Act 1967)"
+    },
+    {
+        "classificationCode": "024 - Private retirement scheme or deferred annuity scheme"
+    },
+    {
+        "classificationCode": "025 - Motor vehicle"
+    },
+    {
+        "classificationCode": "026 - Subscription of books / journals / magazines / newspapers / other similar publications"
+    },
+    {
+        "classificationCode": "027 - Reimbursement"
+    },
+    {
+        "classificationCode": "028 - Rental of motor vehicle"
+    },
+    {
+        "classificationCode": "029 - EV charging facilities (Installation, rental, sale / purchase or subscription fees)"
+    },
+    {
+        "classificationCode": "030 - Repair and maintenance"
+    },
+    {
+        "classificationCode": "031 - Research and development"
+    },
+    {
+        "classificationCode": "032 - Foreign income"
+    },
+    {
+        "classificationCode": "033 - Self-billed - Betting and gaming"
+    },
+    {
+        "classificationCode": "034 - Self-billed - Importation of goods"
+    },
+    {
+        "classificationCode": "035 - Self-billed - Importation of services"
+    },
+    {
+        "classificationCode": "036 - Self-billed - Others"
+    },
+    {
+        "classificationCode": "037 - Self-billed - Monetary payment to agents, dealers or distributors"
+    },
+    {
+        "classificationCode": "038 - Sports equipment, rental / entry fees for sports facilities, registration in sports competition or sports training fees imposed by associations / sports clubs / companies registered with the Sports Commissioner or Companies Commission of Malaysia and carrying out sports activities as listed under the Sports Development Act 1997"
+    },
+    {
+        "classificationCode": "039 - Supporting equipment for disabled person"
+    },
+    {
+        "classificationCode": "040 - Voluntary contribution to approved provident fund"
+    },
+    {
+        "classificationCode": "041 - Dental examination or treatment"
+    },
+    {
+        "classificationCode": "042 - Fertility treatment"
+    },
+    {
+        "classificationCode": "043 - Treatment and home care nursing, daycare centres and residential care centers"
+    },
+    {
+        "classificationCode": "044 - Vouchers, gift cards, loyalty points, etc"
+    },
+    {
+        "classificationCode": "045 - Self-billed - Non-monetary payment to agents, dealers or distributors"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "taxType": "01 - Sales Tax"
+    },
+    {
+        "taxType": "02 - Service Tax"
+    },
+    {
+        "taxType": "03 - Tourism Tax"
+    },
+    {
+        "taxType": "04 - High-Value Goods Tax"
+    },
+    {
+        "taxType": "05 - Sales Tax on Low Value Goods"
+    },
+    {
+        "taxType": "06 - Not Applicable"
+    }
+]

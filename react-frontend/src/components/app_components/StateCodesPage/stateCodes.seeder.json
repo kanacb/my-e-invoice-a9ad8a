@@ -1,0 +1,56 @@
+[
+    {
+        "stateCode": "0 - All States"
+    },
+    {
+        "stateCode": "01 - Johor"
+    },
+    {
+        "stateCode": "02 - Kedah"
+    },
+    {
+        "stateCode": "03 - Kelantan"
+    },
+    {
+        "stateCode": "04 - Melaka"
+    },
+    {
+        "stateCode": "05 - Negeri Sembilan"
+    },
+    {
+        "stateCode": "06 - Pahang"
+    },
+    {
+        "stateCode": "07 - Pulau Pinang"
+    },
+    {
+        "stateCode": "08 - Perak"
+    },
+    {
+        "stateCode": "09 - Perlis"
+    },
+    {
+        "stateCode": "10 - Selangor"
+    },
+    {
+        "stateCode": "11 - Terengganu"
+    },
+    {
+        "stateCode": "12 - Sabah"
+    },
+    {
+        "stateCode": "13 - Sarawak"
+    },
+    {
+        "stateCode": "14 - Wilayah Persekutuan Kuala Lumpur"
+    },
+    {
+        "stateCode": "15 - Wilayah Persekutuan Labuan"
+    },
+    {
+        "stateCode": "16 - Wilayah Persekutuan Putrajaya"
+    },
+    {
+        "stateCode": "17 - Not Applicable"
+    }
+]
