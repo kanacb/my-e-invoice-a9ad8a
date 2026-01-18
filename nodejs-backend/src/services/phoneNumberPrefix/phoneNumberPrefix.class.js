@@ -1,5 +1,3 @@
-const { Service } = require('feathers-mongoose');
+const { Service } = require("feathers-mongoose");
 
-exports.PhoneNumberPrefix = class PhoneNumberPrefix extends Service {
-  
-};
+exports.PhoneNumberPrefix = class PhoneNumberPrefix extends Service {};

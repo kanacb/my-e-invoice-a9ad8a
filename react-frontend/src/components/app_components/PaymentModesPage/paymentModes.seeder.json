@@ -1,26 +1,26 @@
 [
-    {
-        "paymentMode": "01 -  Cash"
-    },
-    {
-        "paymentMode": "02 -  Cheque"
-    },
-    {
-        "paymentMode": "03 -  Bank Transfer"
-    },
-    {
-        "paymentMode": "04 -  Credit Card"
-    },
-    {
-        "paymentMode": "05 -  Debit Card"
-    },
-    {
-        "paymentMode": "06 -  e-Wallet / Digital Wallet"
-    },
-    {
-        "paymentMode": "07 -  Digital Bank"
-    },
-    {
-        "paymentMode": "08 -  Others"
-    }
+  {
+    "paymentMode": "01 -  Cash"
+  },
+  {
+    "paymentMode": "02 -  Cheque"
+  },
+  {
+    "paymentMode": "03 -  Bank Transfer"
+  },
+  {
+    "paymentMode": "04 -  Credit Card"
+  },
+  {
+    "paymentMode": "05 -  Debit Card"
+  },
+  {
+    "paymentMode": "06 -  e-Wallet / Digital Wallet"
+  },
+  {
+    "paymentMode": "07 -  Digital Bank"
+  },
+  {
+    "paymentMode": "08 -  Others"
+  }
 ]

@@ -9,13 +9,15 @@ import { Provider } from "react-redux";
 import * as models from "../../../models";
 
 test("renders frequencyOfBilling create dialog", async () => {
-    const store = init({ models });
-    render(
-        <Provider store={store}>
-            <MemoryRouter>
-                <FrequencyOfBillingCreateDialogComponent show={true} />
-            </MemoryRouter>
-        </Provider>
-    );
-    expect(screen.getByRole("frequencyOfBilling-create-dialog-component")).toBeInTheDocument();
+  const store = init({ models });
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <FrequencyOfBillingCreateDialogComponent show={true} />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(
+    screen.getByRole("frequencyOfBilling-create-dialog-component"),
+  ).toBeInTheDocument();
 });

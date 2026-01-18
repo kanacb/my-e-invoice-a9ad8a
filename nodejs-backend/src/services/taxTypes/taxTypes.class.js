@@ -1,5 +1,3 @@
-const { Service } = require('feathers-mongoose');
+const { Service } = require("feathers-mongoose");
 
-exports.TaxTypes = class TaxTypes extends Service {
-  
-};
+exports.TaxTypes = class TaxTypes extends Service {};

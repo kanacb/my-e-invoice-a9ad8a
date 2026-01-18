@@ -1,749 +1,749 @@
 [
-    {
-        "countryCode": "ABW - ARUBA"
-    },
-    {
-        "countryCode": "AFG - AFGHANISTAN"
-    },
-    {
-        "countryCode": "AGO - ANGOLA"
-    },
-    {
-        "countryCode": "AIA - ANGUILLA"
-    },
-    {
-        "countryCode": "ALA - ALAND ISLANDS"
-    },
-    {
-        "countryCode": "ALB - ALBANIA"
-    },
-    {
-        "countryCode": "AND - ANDORA"
-    },
-    {
-        "countryCode": "ARE - UNITED ARAB EMIRATES"
-    },
-    {
-        "countryCode": "ARG - ARGENTINA"
-    },
-    {
-        "countryCode": "ARM - ARMENIA"
-    },
-    {
-        "countryCode": "ASM - AMERICAN SAMOA"
-    },
-    {
-        "countryCode": "ATA - ANTARCTICA"
-    },
-    {
-        "countryCode": "ATF - FRENCH SOUTHERN TERRITORIES"
-    },
-    {
-        "countryCode": "ATG - ANTIGUA AND BARBUDA"
-    },
-    {
-        "countryCode": "AUS - AUSTRALIA"
-    },
-    {
-        "countryCode": "AUT - AUSTRIA"
-    },
-    {
-        "countryCode": "AZE - AZERBAIDJAN"
-    },
-    {
-        "countryCode": "BDI - BURUNDI"
-    },
-    {
-        "countryCode": "BEL - BELGIUM"
-    },
-    {
-        "countryCode": "BEN - BENIN"
-    },
-    {
-        "countryCode": "BES - BONAIRE, SINT EUSTATIUS AND SABA"
-    },
-    {
-        "countryCode": "BFA - BURKINA FASO"
-    },
-    {
-        "countryCode": "BGD - BANGLADESH"
-    },
-    {
-        "countryCode": "BGR - BULGARIA"
-    },
-    {
-        "countryCode": "BHR - BAHRAIN"
-    },
-    {
-        "countryCode": "BHS - BAHAMAS"
-    },
-    {
-        "countryCode": "BIH - BOSNIA AND HERZEGOVINA"
-    },
-    {
-        "countryCode": "BLM - SAINT BARTHELEMY"
-    },
-    {
-        "countryCode": "BLR - BELARUS"
-    },
-    {
-        "countryCode": "BLZ - BELIZE"
-    },
-    {
-        "countryCode": "BMU - BERMUDA"
-    },
-    {
-        "countryCode": "BOL - BOLIVIA"
-    },
-    {
-        "countryCode": "BRA - BRAZIL"
-    },
-    {
-        "countryCode": "BRB - BARBADOS"
-    },
-    {
-        "countryCode": "BRN - BRUNEI DARUSSALAM"
-    },
-    {
-        "countryCode": "BTN - BHUTAN"
-    },
-    {
-        "countryCode": "BVT - BOUVET ISLAND"
-    },
-    {
-        "countryCode": "BWA - BOTSWANA"
-    },
-    {
-        "countryCode": "CAF - CENTRAL AFRICAN REPUBLIC"
-    },
-    {
-        "countryCode": "CAN - CANADA"
-    },
-    {
-        "countryCode": "CCK - COCOS ISLAND"
-    },
-    {
-        "countryCode": "CHE - SWITZERLAND"
-    },
-    {
-        "countryCode": "CHL - CHILE"
-    },
-    {
-        "countryCode": "CHN - CHINA"
-    },
-    {
-        "countryCode": "CIV - COTE D’IVOIRE"
-    },
-    {
-        "countryCode": "CMR - CAMEROON"
-    },
-    {
-        "countryCode": "COD - CONGO, THE DEMOCRATIC REPUBLIC"
-    },
-    {
-        "countryCode": "COG - CONGO"
-    },
-    {
-        "countryCode": "COK - COOK ISLANDS"
-    },
-    {
-        "countryCode": "COL - COLOMBIA"
-    },
-    {
-        "countryCode": "COM - COMOROS"
-    },
-    {
-        "countryCode": "CPV - CAPE VERDE"
-    },
-    {
-        "countryCode": "CRI - COSTA RICA"
-    },
-    {
-        "countryCode": "CUB - CUBA"
-    },
-    {
-        "countryCode": "CUW - CURACAO"
-    },
-    {
-        "countryCode": "CXR - CHRISTMAS ISLANDS"
-    },
-    {
-        "countryCode": "CYM - CAYMAN ISLANDS"
-    },
-    {
-        "countryCode": "CYP - CYPRUS"
-    },
-    {
-        "countryCode": "CZE - CZECH REPUBLIC"
-    },
-    {
-        "countryCode": "DEU - GERMANY"
-    },
-    {
-        "countryCode": "DJI - DJIBOUTI"
-    },
-    {
-        "countryCode": "DMA - DOMINICA"
-    },
-    {
-        "countryCode": "DNK - DENMARK"
-    },
-    {
-        "countryCode": "DOM - DOMINICAN REPUBLIC"
-    },
-    {
-        "countryCode": "DZA - ALGERIA"
-    },
-    {
-        "countryCode": "ECU - ECUADOR"
-    },
-    {
-        "countryCode": "EGY - EGYPT"
-    },
-    {
-        "countryCode": "ERI - ERITREA"
-    },
-    {
-        "countryCode": "ESH - WESTERN SAHARA"
-    },
-    {
-        "countryCode": "ESP - SPAIN"
-    },
-    {
-        "countryCode": "EST - ESTONIA"
-    },
-    {
-        "countryCode": "ETH - ETHIOPIA"
-    },
-    {
-        "countryCode": "FIN - FINLAND"
-    },
-    {
-        "countryCode": "FJI - FIJI"
-    },
-    {
-        "countryCode": "FLK - FALKLAND ISLANDS (MALVINAS)"
-    },
-    {
-        "countryCode": "FRA - FRANCE"
-    },
-    {
-        "countryCode": "FRO - FAEROE ISLANDS"
-    },
-    {
-        "countryCode": "FSM - MICRONESIA, FEDERATED STATES OF"
-    },
-    {
-        "countryCode": "GAB - GABON"
-    },
-    {
-        "countryCode": "GBR - UNITED KINGDOM"
-    },
-    {
-        "countryCode": "GEO - GEORGIA"
-    },
-    {
-        "countryCode": "GGY - GUERNSEY"
-    },
-    {
-        "countryCode": "GHA - GHANA"
-    },
-    {
-        "countryCode": "GIB - GIBRALTAR"
-    },
-    {
-        "countryCode": "GIN - GUINEA"
-    },
-    {
-        "countryCode": "GLP - GUADELOUPE"
-    },
-    {
-        "countryCode": "GMB - GAMBIA"
-    },
-    {
-        "countryCode": "GNB - GUINEA-BISSAU"
-    },
-    {
-        "countryCode": "GNQ - EQUATORIAL GUINEA"
-    },
-    {
-        "countryCode": "GRC - GREECE"
-    },
-    {
-        "countryCode": "GRD - GRENADA"
-    },
-    {
-        "countryCode": "GRL - GREENLAND"
-    },
-    {
-        "countryCode": "GTM - GUATEMALA"
-    },
-    {
-        "countryCode": "GUF - FRENCH GUIANA"
-    },
-    {
-        "countryCode": "GUM - GUAM"
-    },
-    {
-        "countryCode": "GUY - GUYANA"
-    },
-    {
-        "countryCode": "HKG - HONG KONG"
-    },
-    {
-        "countryCode": "HMD - HEARD AND MCDONALD ISLANDS"
-    },
-    {
-        "countryCode": "HND - HONDURAS"
-    },
-    {
-        "countryCode": "HRV - CROATIA"
-    },
-    {
-        "countryCode": "HTI - HAITI"
-    },
-    {
-        "countryCode": "HUN - HUNGARY"
-    },
-    {
-        "countryCode": "IDN - INDONESIA"
-    },
-    {
-        "countryCode": "IMN - ISLE OF MAN"
-    },
-    {
-        "countryCode": "IND - INDIA"
-    },
-    {
-        "countryCode": "IOT - BRITISH INDIAN OCEAN TERRITORY"
-    },
-    {
-        "countryCode": "IRL - IRELAND"
-    },
-    {
-        "countryCode": "IRN - IRAN"
-    },
-    {
-        "countryCode": "IRQ - IRAQ"
-    },
-    {
-        "countryCode": "ISL - ICELAND"
-    },
-    {
-        "countryCode": "ISR - ISRAEL"
-    },
-    {
-        "countryCode": "ITA - ITALY"
-    },
-    {
-        "countryCode": "JAM - JAMAICA"
-    },
-    {
-        "countryCode": "JEY - JERSEY (CHANNEL ISLANDS)"
-    },
-    {
-        "countryCode": "JOR - JORDAN"
-    },
-    {
-        "countryCode": "JPN - JAPAN"
-    },
-    {
-        "countryCode": "KAZ - KAZAKHSTAN"
-    },
-    {
-        "countryCode": "KEN - KENYA"
-    },
-    {
-        "countryCode": "KGZ - KYRGYZSTAN"
-    },
-    {
-        "countryCode": "KHM - CAMBODIA"
-    },
-    {
-        "countryCode": "KIR - KIRIBATI"
-    },
-    {
-        "countryCode": "KNA - ST.KITTS AND NEVIS"
-    },
-    {
-        "countryCode": "KOR - THE REPUBLIC OF KOREA"
-    },
-    {
-        "countryCode": "KWT - KUWAIT"
-    },
-    {
-        "countryCode": "LAO - LAOS"
-    },
-    {
-        "countryCode": "LBN - LEBANON"
-    },
-    {
-        "countryCode": "LBR - LIBERIA"
-    },
-    {
-        "countryCode": "LBY - LIBYAN ARAB JAMAHIRIYA"
-    },
-    {
-        "countryCode": "LCA - SAINT LUCIA"
-    },
-    {
-        "countryCode": "LIE - LIECHTENSTEIN"
-    },
-    {
-        "countryCode": "LKA - SRI LANKA"
-    },
-    {
-        "countryCode": "LSO - LESOTHO"
-    },
-    {
-        "countryCode": "LTU - LITHUANIA"
-    },
-    {
-        "countryCode": "LUX - LUXEMBOURG"
-    },
-    {
-        "countryCode": "LVA - LATVIA"
-    },
-    {
-        "countryCode": "MAC - MACAO"
-    },
-    {
-        "countryCode": "MAF - SAINT MARTIN (FRENCH PART)"
-    },
-    {
-        "countryCode": "MAR - MOROCCO"
-    },
-    {
-        "countryCode": "MCO - MONACO"
-    },
-    {
-        "countryCode": "MDA - MOLDOVA, REPUBLIC OF"
-    },
-    {
-        "countryCode": "MDG - MADAGASCAR"
-    },
-    {
-        "countryCode": "MDV - MALDIVES"
-    },
-    {
-        "countryCode": "MEX - MEXICO"
-    },
-    {
-        "countryCode": "MHL - MARSHALL ISLANDS"
-    },
-    {
-        "countryCode": "MKD - MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
-    },
-    {
-        "countryCode": "MLI - MALI"
-    },
-    {
-        "countryCode": "MLT - MALTA"
-    },
-    {
-        "countryCode": "MMR - MYANMAR"
-    },
-    {
-        "countryCode": "MNE - MONTENEGRO"
-    },
-    {
-        "countryCode": "MNG - MONGOLIA"
-    },
-    {
-        "countryCode": "MNP - NORTHERN MARIANA ISLANDS"
-    },
-    {
-        "countryCode": "MOZ - MOZAMBIQUE"
-    },
-    {
-        "countryCode": "MRT - MAURITANIA"
-    },
-    {
-        "countryCode": "MSR - MONTSERRAT"
-    },
-    {
-        "countryCode": "MTQ - MARTINIQUE"
-    },
-    {
-        "countryCode": "MUS - MAURITIUS"
-    },
-    {
-        "countryCode": "MWI - MALAWI"
-    },
-    {
-        "countryCode": "MYS - MALAYSIA"
-    },
-    {
-        "countryCode": "MYT - MAYOTTE"
-    },
-    {
-        "countryCode": "NAM - NAMIBIA"
-    },
-    {
-        "countryCode": "NCL - NEW CALEDONIA"
-    },
-    {
-        "countryCode": "NER - NIGER"
-    },
-    {
-        "countryCode": "NFK - NORFOLK ISLAND"
-    },
-    {
-        "countryCode": "NGA - NIGERIA"
-    },
-    {
-        "countryCode": "NIC - NICARAGUA"
-    },
-    {
-        "countryCode": "NIU - NIUE"
-    },
-    {
-        "countryCode": "NLD - NETHERLANDS"
-    },
-    {
-        "countryCode": "NOR - NORWAY"
-    },
-    {
-        "countryCode": "NPL - NEPAL"
-    },
-    {
-        "countryCode": "NRU - NAURU"
-    },
-    {
-        "countryCode": "NZL - NEW ZEALAND"
-    },
-    {
-        "countryCode": "OMN - OMAN"
-    },
-    {
-        "countryCode": "PAK - PAKISTAN"
-    },
-    {
-        "countryCode": "PAN - PANAMA"
-    },
-    {
-        "countryCode": "PCN - PITCAIRN"
-    },
-    {
-        "countryCode": "PER - PERU"
-    },
-    {
-        "countryCode": "PHL - PHILIPPINES"
-    },
-    {
-        "countryCode": "PLW - PALAU"
-    },
-    {
-        "countryCode": "PNG - PAPUA NEW GUINEA"
-    },
-    {
-        "countryCode": "POL - POLAND"
-    },
-    {
-        "countryCode": "PRI - PUERTO RICO"
-    },
-    {
-        "countryCode": "PRK - DEMOC.PEOPLES REP.OF KOREA"
-    },
-    {
-        "countryCode": "PRT - PORTUGAL"
-    },
-    {
-        "countryCode": "PRY - PARAGUAY"
-    },
-    {
-        "countryCode": "PSE - PALESTINIAN TERRITORY, OCCUPIED"
-    },
-    {
-        "countryCode": "PYF - FRENCH POLYNESIA"
-    },
-    {
-        "countryCode": "QAT - QATAR"
-    },
-    {
-        "countryCode": "REU - REUNION"
-    },
-    {
-        "countryCode": "ROU - ROMANIA"
-    },
-    {
-        "countryCode": "RUS - RUSSIAN FEDERATION (USSR)"
-    },
-    {
-        "countryCode": "RWA - RWANDA"
-    },
-    {
-        "countryCode": "SAU - SAUDI ARABIA"
-    },
-    {
-        "countryCode": "SDN - SUDAN"
-    },
-    {
-        "countryCode": "SEN - SENEGAL"
-    },
-    {
-        "countryCode": "SGP - SINGAPORE"
-    },
-    {
-        "countryCode": "SGS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLAND"
-    },
-    {
-        "countryCode": "SHN - ST. HELENA"
-    },
-    {
-        "countryCode": "SJM - SVALBARD AND JAN MAYEN ISLANDS"
-    },
-    {
-        "countryCode": "SLB - SOLOMON ISLANDS"
-    },
-    {
-        "countryCode": "SLE - SIERRA LEONE"
-    },
-    {
-        "countryCode": "SLV - EL SALVADOR"
-    },
-    {
-        "countryCode": "SMR - SAN MARINO"
-    },
-    {
-        "countryCode": "SOM - SOMALIA"
-    },
-    {
-        "countryCode": "SPM - ST. PIERRE AND MIQUELON"
-    },
-    {
-        "countryCode": "SRB - SERBIA & MONTENEGRO"
-    },
-    {
-        "countryCode": "SSD - SOUTH SUDAN"
-    },
-    {
-        "countryCode": "STP - SAO TOME AND PRINCIPE"
-    },
-    {
-        "countryCode": "SUR - SURINAME"
-    },
-    {
-        "countryCode": "SVK - SLOVAK REPUBLIC"
-    },
-    {
-        "countryCode": "SVN - SLOVENIA"
-    },
-    {
-        "countryCode": "SWE - SWEDEN"
-    },
-    {
-        "countryCode": "SWZ - ESWATINI, KINGDOM OF (SWAZILAND)"
-    },
-    {
-        "countryCode": "SXM - SINT MAARTEN (DUTCH PART)"
-    },
-    {
-        "countryCode": "SYC - SEYCHELLES"
-    },
-    {
-        "countryCode": "SYR - SYRIAN ARAB REPUBLIC"
-    },
-    {
-        "countryCode": "TCA - TURKS AND CAICOS ISLANDS"
-    },
-    {
-        "countryCode": "TCD - CHAD"
-    },
-    {
-        "countryCode": "TGO - TOGO"
-    },
-    {
-        "countryCode": "THA - THAILAND"
-    },
-    {
-        "countryCode": "TJK - TAJIKISTAN"
-    },
-    {
-        "countryCode": "TKL - TOKELAU"
-    },
-    {
-        "countryCode": "TKM - TURKMENISTAN"
-    },
-    {
-        "countryCode": "TLS - TIMOR-LESTE"
-    },
-    {
-        "countryCode": "TON - TONGA"
-    },
-    {
-        "countryCode": "TTO - TRINIDAD AND TOBAGO"
-    },
-    {
-        "countryCode": "TUN - TUNISIA"
-    },
-    {
-        "countryCode": "TUR - TURKIYE"
-    },
-    {
-        "countryCode": "TUV - TUVALU"
-    },
-    {
-        "countryCode": "TWN - TAIWAN"
-    },
-    {
-        "countryCode": "TZA - TANZANIA UNITED REPUBLIC"
-    },
-    {
-        "countryCode": "UGA - UGANDA"
-    },
-    {
-        "countryCode": "UKR - UKRAINE"
-    },
-    {
-        "countryCode": "UMI - UNITED STATES MINOR OUTLYING ISLANDS"
-    },
-    {
-        "countryCode": "URY - URUGUAY"
-    },
-    {
-        "countryCode": "USA - UNITED STATES OF AMERICA"
-    },
-    {
-        "countryCode": "UZB - UZBEKISTAN"
-    },
-    {
-        "countryCode": "VAT - VATICAN CITY STATE (HOLY SEE)"
-    },
-    {
-        "countryCode": "VCT - SAINT VINCENT AND GRENADINES"
-    },
-    {
-        "countryCode": "VEN - VENEZUELA"
-    },
-    {
-        "countryCode": "VGB - VIRGIN ISLANDS(BRITISH)"
-    },
-    {
-        "countryCode": "VIR - VIRGIN ISLANDS(US)"
-    },
-    {
-        "countryCode": "VNM - VIETNAM"
-    },
-    {
-        "countryCode": "VUT - VANUATU"
-    },
-    {
-        "countryCode": "WLF - WALLIS AND FUTUNA ISLANDS"
-    },
-    {
-        "countryCode": "WSM - SAMOA"
-    },
-    {
-        "countryCode": "YEM - YEMEN"
-    },
-    {
-        "countryCode": "ZAF - SOUTH AFRICA"
-    },
-    {
-        "countryCode": "ZMB - ZAMBIA"
-    },
-    {
-        "countryCode": "ZWE - ZIMBABWE"
-    }
+  {
+    "countryCode": "ABW - ARUBA"
+  },
+  {
+    "countryCode": "AFG - AFGHANISTAN"
+  },
+  {
+    "countryCode": "AGO - ANGOLA"
+  },
+  {
+    "countryCode": "AIA - ANGUILLA"
+  },
+  {
+    "countryCode": "ALA - ALAND ISLANDS"
+  },
+  {
+    "countryCode": "ALB - ALBANIA"
+  },
+  {
+    "countryCode": "AND - ANDORA"
+  },
+  {
+    "countryCode": "ARE - UNITED ARAB EMIRATES"
+  },
+  {
+    "countryCode": "ARG - ARGENTINA"
+  },
+  {
+    "countryCode": "ARM - ARMENIA"
+  },
+  {
+    "countryCode": "ASM - AMERICAN SAMOA"
+  },
+  {
+    "countryCode": "ATA - ANTARCTICA"
+  },
+  {
+    "countryCode": "ATF - FRENCH SOUTHERN TERRITORIES"
+  },
+  {
+    "countryCode": "ATG - ANTIGUA AND BARBUDA"
+  },
+  {
+    "countryCode": "AUS - AUSTRALIA"
+  },
+  {
+    "countryCode": "AUT - AUSTRIA"
+  },
+  {
+    "countryCode": "AZE - AZERBAIDJAN"
+  },
+  {
+    "countryCode": "BDI - BURUNDI"
+  },
+  {
+    "countryCode": "BEL - BELGIUM"
+  },
+  {
+    "countryCode": "BEN - BENIN"
+  },
+  {
+    "countryCode": "BES - BONAIRE, SINT EUSTATIUS AND SABA"
+  },
+  {
+    "countryCode": "BFA - BURKINA FASO"
+  },
+  {
+    "countryCode": "BGD - BANGLADESH"
+  },
+  {
+    "countryCode": "BGR - BULGARIA"
+  },
+  {
+    "countryCode": "BHR - BAHRAIN"
+  },
+  {
+    "countryCode": "BHS - BAHAMAS"
+  },
+  {
+    "countryCode": "BIH - BOSNIA AND HERZEGOVINA"
+  },
+  {
+    "countryCode": "BLM - SAINT BARTHELEMY"
+  },
+  {
+    "countryCode": "BLR - BELARUS"
+  },
+  {
+    "countryCode": "BLZ - BELIZE"
+  },
+  {
+    "countryCode": "BMU - BERMUDA"
+  },
+  {
+    "countryCode": "BOL - BOLIVIA"
+  },
+  {
+    "countryCode": "BRA - BRAZIL"
+  },
+  {
+    "countryCode": "BRB - BARBADOS"
+  },
+  {
+    "countryCode": "BRN - BRUNEI DARUSSALAM"
+  },
+  {
+    "countryCode": "BTN - BHUTAN"
+  },
+  {
+    "countryCode": "BVT - BOUVET ISLAND"
+  },
+  {
+    "countryCode": "BWA - BOTSWANA"
+  },
+  {
+    "countryCode": "CAF - CENTRAL AFRICAN REPUBLIC"
+  },
+  {
+    "countryCode": "CAN - CANADA"
+  },
+  {
+    "countryCode": "CCK - COCOS ISLAND"
+  },
+  {
+    "countryCode": "CHE - SWITZERLAND"
+  },
+  {
+    "countryCode": "CHL - CHILE"
+  },
+  {
+    "countryCode": "CHN - CHINA"
+  },
+  {
+    "countryCode": "CIV - COTE D’IVOIRE"
+  },
+  {
+    "countryCode": "CMR - CAMEROON"
+  },
+  {
+    "countryCode": "COD - CONGO, THE DEMOCRATIC REPUBLIC"
+  },
+  {
+    "countryCode": "COG - CONGO"
+  },
+  {
+    "countryCode": "COK - COOK ISLANDS"
+  },
+  {
+    "countryCode": "COL - COLOMBIA"
+  },
+  {
+    "countryCode": "COM - COMOROS"
+  },
+  {
+    "countryCode": "CPV - CAPE VERDE"
+  },
+  {
+    "countryCode": "CRI - COSTA RICA"
+  },
+  {
+    "countryCode": "CUB - CUBA"
+  },
+  {
+    "countryCode": "CUW - CURACAO"
+  },
+  {
+    "countryCode": "CXR - CHRISTMAS ISLANDS"
+  },
+  {
+    "countryCode": "CYM - CAYMAN ISLANDS"
+  },
+  {
+    "countryCode": "CYP - CYPRUS"
+  },
+  {
+    "countryCode": "CZE - CZECH REPUBLIC"
+  },
+  {
+    "countryCode": "DEU - GERMANY"
+  },
+  {
+    "countryCode": "DJI - DJIBOUTI"
+  },
+  {
+    "countryCode": "DMA - DOMINICA"
+  },
+  {
+    "countryCode": "DNK - DENMARK"
+  },
+  {
+    "countryCode": "DOM - DOMINICAN REPUBLIC"
+  },
+  {
+    "countryCode": "DZA - ALGERIA"
+  },
+  {
+    "countryCode": "ECU - ECUADOR"
+  },
+  {
+    "countryCode": "EGY - EGYPT"
+  },
+  {
+    "countryCode": "ERI - ERITREA"
+  },
+  {
+    "countryCode": "ESH - WESTERN SAHARA"
+  },
+  {
+    "countryCode": "ESP - SPAIN"
+  },
+  {
+    "countryCode": "EST - ESTONIA"
+  },
+  {
+    "countryCode": "ETH - ETHIOPIA"
+  },
+  {
+    "countryCode": "FIN - FINLAND"
+  },
+  {
+    "countryCode": "FJI - FIJI"
+  },
+  {
+    "countryCode": "FLK - FALKLAND ISLANDS (MALVINAS)"
+  },
+  {
+    "countryCode": "FRA - FRANCE"
+  },
+  {
+    "countryCode": "FRO - FAEROE ISLANDS"
+  },
+  {
+    "countryCode": "FSM - MICRONESIA, FEDERATED STATES OF"
+  },
+  {
+    "countryCode": "GAB - GABON"
+  },
+  {
+    "countryCode": "GBR - UNITED KINGDOM"
+  },
+  {
+    "countryCode": "GEO - GEORGIA"
+  },
+  {
+    "countryCode": "GGY - GUERNSEY"
+  },
+  {
+    "countryCode": "GHA - GHANA"
+  },
+  {
+    "countryCode": "GIB - GIBRALTAR"
+  },
+  {
+    "countryCode": "GIN - GUINEA"
+  },
+  {
+    "countryCode": "GLP - GUADELOUPE"
+  },
+  {
+    "countryCode": "GMB - GAMBIA"
+  },
+  {
+    "countryCode": "GNB - GUINEA-BISSAU"
+  },
+  {
+    "countryCode": "GNQ - EQUATORIAL GUINEA"
+  },
+  {
+    "countryCode": "GRC - GREECE"
+  },
+  {
+    "countryCode": "GRD - GRENADA"
+  },
+  {
+    "countryCode": "GRL - GREENLAND"
+  },
+  {
+    "countryCode": "GTM - GUATEMALA"
+  },
+  {
+    "countryCode": "GUF - FRENCH GUIANA"
+  },
+  {
+    "countryCode": "GUM - GUAM"
+  },
+  {
+    "countryCode": "GUY - GUYANA"
+  },
+  {
+    "countryCode": "HKG - HONG KONG"
+  },
+  {
+    "countryCode": "HMD - HEARD AND MCDONALD ISLANDS"
+  },
+  {
+    "countryCode": "HND - HONDURAS"
+  },
+  {
+    "countryCode": "HRV - CROATIA"
+  },
+  {
+    "countryCode": "HTI - HAITI"
+  },
+  {
+    "countryCode": "HUN - HUNGARY"
+  },
+  {
+    "countryCode": "IDN - INDONESIA"
+  },
+  {
+    "countryCode": "IMN - ISLE OF MAN"
+  },
+  {
+    "countryCode": "IND - INDIA"
+  },
+  {
+    "countryCode": "IOT - BRITISH INDIAN OCEAN TERRITORY"
+  },
+  {
+    "countryCode": "IRL - IRELAND"
+  },
+  {
+    "countryCode": "IRN - IRAN"
+  },
+  {
+    "countryCode": "IRQ - IRAQ"
+  },
+  {
+    "countryCode": "ISL - ICELAND"
+  },
+  {
+    "countryCode": "ISR - ISRAEL"
+  },
+  {
+    "countryCode": "ITA - ITALY"
+  },
+  {
+    "countryCode": "JAM - JAMAICA"
+  },
+  {
+    "countryCode": "JEY - JERSEY (CHANNEL ISLANDS)"
+  },
+  {
+    "countryCode": "JOR - JORDAN"
+  },
+  {
+    "countryCode": "JPN - JAPAN"
+  },
+  {
+    "countryCode": "KAZ - KAZAKHSTAN"
+  },
+  {
+    "countryCode": "KEN - KENYA"
+  },
+  {
+    "countryCode": "KGZ - KYRGYZSTAN"
+  },
+  {
+    "countryCode": "KHM - CAMBODIA"
+  },
+  {
+    "countryCode": "KIR - KIRIBATI"
+  },
+  {
+    "countryCode": "KNA - ST.KITTS AND NEVIS"
+  },
+  {
+    "countryCode": "KOR - THE REPUBLIC OF KOREA"
+  },
+  {
+    "countryCode": "KWT - KUWAIT"
+  },
+  {
+    "countryCode": "LAO - LAOS"
+  },
+  {
+    "countryCode": "LBN - LEBANON"
+  },
+  {
+    "countryCode": "LBR - LIBERIA"
+  },
+  {
+    "countryCode": "LBY - LIBYAN ARAB JAMAHIRIYA"
+  },
+  {
+    "countryCode": "LCA - SAINT LUCIA"
+  },
+  {
+    "countryCode": "LIE - LIECHTENSTEIN"
+  },
+  {
+    "countryCode": "LKA - SRI LANKA"
+  },
+  {
+    "countryCode": "LSO - LESOTHO"
+  },
+  {
+    "countryCode": "LTU - LITHUANIA"
+  },
+  {
+    "countryCode": "LUX - LUXEMBOURG"
+  },
+  {
+    "countryCode": "LVA - LATVIA"
+  },
+  {
+    "countryCode": "MAC - MACAO"
+  },
+  {
+    "countryCode": "MAF - SAINT MARTIN (FRENCH PART)"
+  },
+  {
+    "countryCode": "MAR - MOROCCO"
+  },
+  {
+    "countryCode": "MCO - MONACO"
+  },
+  {
+    "countryCode": "MDA - MOLDOVA, REPUBLIC OF"
+  },
+  {
+    "countryCode": "MDG - MADAGASCAR"
+  },
+  {
+    "countryCode": "MDV - MALDIVES"
+  },
+  {
+    "countryCode": "MEX - MEXICO"
+  },
+  {
+    "countryCode": "MHL - MARSHALL ISLANDS"
+  },
+  {
+    "countryCode": "MKD - MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF"
+  },
+  {
+    "countryCode": "MLI - MALI"
+  },
+  {
+    "countryCode": "MLT - MALTA"
+  },
+  {
+    "countryCode": "MMR - MYANMAR"
+  },
+  {
+    "countryCode": "MNE - MONTENEGRO"
+  },
+  {
+    "countryCode": "MNG - MONGOLIA"
+  },
+  {
+    "countryCode": "MNP - NORTHERN MARIANA ISLANDS"
+  },
+  {
+    "countryCode": "MOZ - MOZAMBIQUE"
+  },
+  {
+    "countryCode": "MRT - MAURITANIA"
+  },
+  {
+    "countryCode": "MSR - MONTSERRAT"
+  },
+  {
+    "countryCode": "MTQ - MARTINIQUE"
+  },
+  {
+    "countryCode": "MUS - MAURITIUS"
+  },
+  {
+    "countryCode": "MWI - MALAWI"
+  },
+  {
+    "countryCode": "MYS - MALAYSIA"
+  },
+  {
+    "countryCode": "MYT - MAYOTTE"
+  },
+  {
+    "countryCode": "NAM - NAMIBIA"
+  },
+  {
+    "countryCode": "NCL - NEW CALEDONIA"
+  },
+  {
+    "countryCode": "NER - NIGER"
+  },
+  {
+    "countryCode": "NFK - NORFOLK ISLAND"
+  },
+  {
+    "countryCode": "NGA - NIGERIA"
+  },
+  {
+    "countryCode": "NIC - NICARAGUA"
+  },
+  {
+    "countryCode": "NIU - NIUE"
+  },
+  {
+    "countryCode": "NLD - NETHERLANDS"
+  },
+  {
+    "countryCode": "NOR - NORWAY"
+  },
+  {
+    "countryCode": "NPL - NEPAL"
+  },
+  {
+    "countryCode": "NRU - NAURU"
+  },
+  {
+    "countryCode": "NZL - NEW ZEALAND"
+  },
+  {
+    "countryCode": "OMN - OMAN"
+  },
+  {
+    "countryCode": "PAK - PAKISTAN"
+  },
+  {
+    "countryCode": "PAN - PANAMA"
+  },
+  {
+    "countryCode": "PCN - PITCAIRN"
+  },
+  {
+    "countryCode": "PER - PERU"
+  },
+  {
+    "countryCode": "PHL - PHILIPPINES"
+  },
+  {
+    "countryCode": "PLW - PALAU"
+  },
+  {
+    "countryCode": "PNG - PAPUA NEW GUINEA"
+  },
+  {
+    "countryCode": "POL - POLAND"
+  },
+  {
+    "countryCode": "PRI - PUERTO RICO"
+  },
+  {
+    "countryCode": "PRK - DEMOC.PEOPLES REP.OF KOREA"
+  },
+  {
+    "countryCode": "PRT - PORTUGAL"
+  },
+  {
+    "countryCode": "PRY - PARAGUAY"
+  },
+  {
+    "countryCode": "PSE - PALESTINIAN TERRITORY, OCCUPIED"
+  },
+  {
+    "countryCode": "PYF - FRENCH POLYNESIA"
+  },
+  {
+    "countryCode": "QAT - QATAR"
+  },
+  {
+    "countryCode": "REU - REUNION"
+  },
+  {
+    "countryCode": "ROU - ROMANIA"
+  },
+  {
+    "countryCode": "RUS - RUSSIAN FEDERATION (USSR)"
+  },
+  {
+    "countryCode": "RWA - RWANDA"
+  },
+  {
+    "countryCode": "SAU - SAUDI ARABIA"
+  },
+  {
+    "countryCode": "SDN - SUDAN"
+  },
+  {
+    "countryCode": "SEN - SENEGAL"
+  },
+  {
+    "countryCode": "SGP - SINGAPORE"
+  },
+  {
+    "countryCode": "SGS - SOUTH GEORGIA AND THE SOUTH SANDWICH ISLAND"
+  },
+  {
+    "countryCode": "SHN - ST. HELENA"
+  },
+  {
+    "countryCode": "SJM - SVALBARD AND JAN MAYEN ISLANDS"
+  },
+  {
+    "countryCode": "SLB - SOLOMON ISLANDS"
+  },
+  {
+    "countryCode": "SLE - SIERRA LEONE"
+  },
+  {
+    "countryCode": "SLV - EL SALVADOR"
+  },
+  {
+    "countryCode": "SMR - SAN MARINO"
+  },
+  {
+    "countryCode": "SOM - SOMALIA"
+  },
+  {
+    "countryCode": "SPM - ST. PIERRE AND MIQUELON"
+  },
+  {
+    "countryCode": "SRB - SERBIA & MONTENEGRO"
+  },
+  {
+    "countryCode": "SSD - SOUTH SUDAN"
+  },
+  {
+    "countryCode": "STP - SAO TOME AND PRINCIPE"
+  },
+  {
+    "countryCode": "SUR - SURINAME"
+  },
+  {
+    "countryCode": "SVK - SLOVAK REPUBLIC"
+  },
+  {
+    "countryCode": "SVN - SLOVENIA"
+  },
+  {
+    "countryCode": "SWE - SWEDEN"
+  },
+  {
+    "countryCode": "SWZ - ESWATINI, KINGDOM OF (SWAZILAND)"
+  },
+  {
+    "countryCode": "SXM - SINT MAARTEN (DUTCH PART)"
+  },
+  {
+    "countryCode": "SYC - SEYCHELLES"
+  },
+  {
+    "countryCode": "SYR - SYRIAN ARAB REPUBLIC"
+  },
+  {
+    "countryCode": "TCA - TURKS AND CAICOS ISLANDS"
+  },
+  {
+    "countryCode": "TCD - CHAD"
+  },
+  {
+    "countryCode": "TGO - TOGO"
+  },
+  {
+    "countryCode": "THA - THAILAND"
+  },
+  {
+    "countryCode": "TJK - TAJIKISTAN"
+  },
+  {
+    "countryCode": "TKL - TOKELAU"
+  },
+  {
+    "countryCode": "TKM - TURKMENISTAN"
+  },
+  {
+    "countryCode": "TLS - TIMOR-LESTE"
+  },
+  {
+    "countryCode": "TON - TONGA"
+  },
+  {
+    "countryCode": "TTO - TRINIDAD AND TOBAGO"
+  },
+  {
+    "countryCode": "TUN - TUNISIA"
+  },
+  {
+    "countryCode": "TUR - TURKIYE"
+  },
+  {
+    "countryCode": "TUV - TUVALU"
+  },
+  {
+    "countryCode": "TWN - TAIWAN"
+  },
+  {
+    "countryCode": "TZA - TANZANIA UNITED REPUBLIC"
+  },
+  {
+    "countryCode": "UGA - UGANDA"
+  },
+  {
+    "countryCode": "UKR - UKRAINE"
+  },
+  {
+    "countryCode": "UMI - UNITED STATES MINOR OUTLYING ISLANDS"
+  },
+  {
+    "countryCode": "URY - URUGUAY"
+  },
+  {
+    "countryCode": "USA - UNITED STATES OF AMERICA"
+  },
+  {
+    "countryCode": "UZB - UZBEKISTAN"
+  },
+  {
+    "countryCode": "VAT - VATICAN CITY STATE (HOLY SEE)"
+  },
+  {
+    "countryCode": "VCT - SAINT VINCENT AND GRENADINES"
+  },
+  {
+    "countryCode": "VEN - VENEZUELA"
+  },
+  {
+    "countryCode": "VGB - VIRGIN ISLANDS(BRITISH)"
+  },
+  {
+    "countryCode": "VIR - VIRGIN ISLANDS(US)"
+  },
+  {
+    "countryCode": "VNM - VIETNAM"
+  },
+  {
+    "countryCode": "VUT - VANUATU"
+  },
+  {
+    "countryCode": "WLF - WALLIS AND FUTUNA ISLANDS"
+  },
+  {
+    "countryCode": "WSM - SAMOA"
+  },
+  {
+    "countryCode": "YEM - YEMEN"
+  },
+  {
+    "countryCode": "ZAF - SOUTH AFRICA"
+  },
+  {
+    "countryCode": "ZMB - ZAMBIA"
+  },
+  {
+    "countryCode": "ZWE - ZIMBABWE"
+  }
 ]

@@ -1,5 +1,3 @@
-const { Service } = require('feathers-mongoose');
+const { Service } = require("feathers-mongoose");
 
-exports.IdentifyType = class IdentifyType extends Service {
-  
-};
+exports.IdentifyType = class IdentifyType extends Service {};

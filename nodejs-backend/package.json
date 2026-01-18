@@ -9,8 +9,8 @@
         "feathers"
     ],
     "author": {
-        "name": "Abirami Muthiah",
-        "email": "abirami@cloudbasha.com"
+        "name": "Cloud Basha",
+        "email": "admin@cloudbasha.com"
     },
     "contributors": [],
     "bugs": {},
@@ -20,8 +20,8 @@
         "config": "config/"
     },
     "engines": {
-        "node": "^20.0.0",
-        "npm": ">= 10.0.0"
+        "node": "^24.0.0",
+        "npm": ">= 11.0.0"
     },
     "scripts": {
         "dev": "nodemon src/",
@@ -58,15 +58,18 @@
         "@feathersjs/feathers": "^4.5.11",
         "@feathersjs/socketio": "^4.5.11",
         "@feathersjs/transport-commons": "^4.5.11",
+        "aws-sdk": "^2.1692.0",
         "axios": "^0.27.2",
         "bull": "^4.13.1",
         "bullmq": "^5.15.0",
         "compression": "^1.7.4",
         "cors": "^2.8.5",
+        "crypto-js": "^4.2.0",
         "dotenv": "^16.0.2",
         "feathers-hooks-common": "^6.1.3",
         "feathers-mongoose": "^8.5.1",
         "feathers-redis-cache": "^1.2.2",
+        "firebase-admin": "^13.0.1",
         "helmet": "^4.6.0",
         "ioredis": "^5.4.1",
         "lodash": "^4.17.21",
@@ -74,6 +77,8 @@
         "mongodb-core": "^3.2.7",
         "mongoose": "^8.7.0",
         "multer": "^1.4.5-lts.1",
+        "multer-s3": "^3.0.1",
+        "node-email-verifier": "^2.0.0",
         "node-schedule": "^2.1.0",
         "nodemailer": "^6.7.8",
         "prettier": "^3.0.3",

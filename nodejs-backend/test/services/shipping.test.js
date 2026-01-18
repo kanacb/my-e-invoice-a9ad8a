@@ -1,10 +1,10 @@
-const assert = require('assert');
-const app = require('../../src/app');
+const assert = require("assert");
+const app = require("../../src/app");
 
-describe('\'shipping\' service', () => {
-  it('registered the service', () => {
-    const service = app.service('shipping');
+describe("'shipping' service", () => {
+  it("registered the service", () => {
+    const service = app.service("shipping");
 
-    assert.ok(service, 'Registered the service (shipping)');
+    assert.ok(service, "Registered the service (shipping)");
   });
 });

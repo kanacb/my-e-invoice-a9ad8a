@@ -1,13 +1,13 @@
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import React, { useState, useRef, useEffect} from 'react';
-import _ from 'lodash';
-import { Button } from 'primereact/button';
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
+import React, { useState, useRef, useEffect } from "react";
+import _ from "lodash";
+import { Button } from "primereact/button";
 
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import UploadService from "../../../services/UploadService";
-import { InputText } from 'primereact/inputtext';
+import { InputText } from "primereact/inputtext";
 import { Dialog } from "primereact/dialog";
 import { MultiSelect } from "primereact/multiselect";
 import DownloadCSV from "../../../utils/DownloadCSV";
@@ -18,34 +18,84 @@ import CopyIcon from "../../../assets/media/Clipboard.png";
 import DuplicateIcon from "../../../assets/media/Duplicate.png";
 import DeleteIcon from "../../../assets/media/Trash.png";
 
-const InvoicesDataTable = ({ items, fields, onEditRow, onRowDelete, onRowClick, searchDialog, setSearchDialog,   showUpload, setShowUpload,
-    showFilter, setShowFilter,
-    showColumns, setShowColumns, onClickSaveFilteredfields ,
-    selectedFilterFields, setSelectedFilterFields,
-    selectedHideFields, setSelectedHideFields, onClickSaveHiddenfields, loading, user,   selectedDelete,
-  setSelectedDelete, onCreateResult}) => {
-    const dt = useRef(null);
-    const urlParams = useParams();
-    const [globalFilter, setGlobalFilter] = useState('');
+const InvoicesDataTable = ({
+  items,
+  fields,
+  onEditRow,
+  onRowDelete,
+  onRowClick,
+  searchDialog,
+  setSearchDialog,
+  showUpload,
+  setShowUpload,
+  showFilter,
+  setShowFilter,
+  showColumns,
+  setShowColumns,
+  onClickSaveFilteredfields,
+  selectedFilterFields,
+  setSelectedFilterFields,
+  selectedHideFields,
+  setSelectedHideFields,
+  onClickSaveHiddenfields,
+  loading,
+  user,
+  selectedDelete,
+  setSelectedDelete,
+  onCreateResult,
+}) => {
+  const dt = useRef(null);
+  const urlParams = useParams();
+  const [globalFilter, setGlobalFilter] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
   const [data, setData] = useState([]);
 
-const dropdownTemplate0 = (rowData, { rowIndex }) => <p >{rowData.invoiceType?.eInvoiceTypes}</p>
-const p_calendarTemplate1 = (rowData, { rowIndex }) => <p >{rowData.invoiceDateAndTime}</p>
-const pTemplate2 = (rowData, { rowIndex }) => <p >{rowData.originalEInvoiceReferenceNumber}</p>
-const p_numberTemplate3 = (rowData, { rowIndex }) => <p >{rowData.no}</p>
-const dropdownTemplate4 = (rowData, { rowIndex }) => <p >{rowData.classification?.classificationCode}</p>
-const dropdownTemplate6 = (rowData, { rowIndex }) => <p >{rowData.countryOfOrigin?.countryCode}</p>
-const pTemplate21 = (rowData, { rowIndex }) => <p >{rowData.detailsOfTaxExemption}</p>
-const pTemplate27 = (rowData, { rowIndex }) => <p >{rowData.invoiceNumber}</p>
-const tickTemplate28 = (rowData, { rowIndex }) => <i className={`pi ${rowData.consolidated?"pi-check": "pi-times"}`}  ></i>
-const dropdownTemplate30 = (rowData, { rowIndex }) => <p >{rowData.buyer?.name}</p>
-const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.name}</p>
-    const editTemplate = (rowData, { rowIndex }) => <Button onClick={() => onEditRow(rowData, rowIndex)} icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`} className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`} />;
-    const deleteTemplate = (rowData, { rowIndex }) => <Button onClick={() => onRowDelete(rowData._id)} icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text" />;
-    
-      const checkboxTemplate = (rowData) => (
+  const dropdownTemplate0 = (rowData, { rowIndex }) => (
+    <p>{rowData.invoiceType?.eInvoiceTypes}</p>
+  );
+  const p_calendarTemplate1 = (rowData, { rowIndex }) => (
+    <p>{rowData.invoiceDateAndTime}</p>
+  );
+  const pTemplate2 = (rowData, { rowIndex }) => (
+    <p>{rowData.originalEInvoiceReferenceNumber}</p>
+  );
+  const p_numberTemplate3 = (rowData, { rowIndex }) => <p>{rowData.no}</p>;
+  const dropdownTemplate4 = (rowData, { rowIndex }) => (
+    <p>{rowData.classification?.classificationCode}</p>
+  );
+  const dropdownTemplate6 = (rowData, { rowIndex }) => (
+    <p>{rowData.countryOfOrigin?.countryCode}</p>
+  );
+  const pTemplate21 = (rowData, { rowIndex }) => (
+    <p>{rowData.detailsOfTaxExemption}</p>
+  );
+  const pTemplate27 = (rowData, { rowIndex }) => <p>{rowData.invoiceNumber}</p>;
+  const tickTemplate28 = (rowData, { rowIndex }) => (
+    <i className={`pi ${rowData.consolidated ? "pi-check" : "pi-times"}`}></i>
+  );
+  const dropdownTemplate30 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyer?.name}</p>
+  );
+  const dropdownTemplate31 = (rowData, { rowIndex }) => (
+    <p>{rowData.supplier?.name}</p>
+  );
+  const editTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onEditRow(rowData, rowIndex)}
+      icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`}
+      className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`}
+    />
+  );
+  const deleteTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onRowDelete(rowData._id)}
+      icon="pi pi-times"
+      className="p-button-rounded p-button-danger p-button-text"
+    />
+  );
+
+  const checkboxTemplate = (rowData) => (
     <Checkbox
       checked={selectedItems.some((item) => item._id === rowData._id)}
       onChange={(e) => {
@@ -86,7 +136,7 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
       console.error("Failed to delete selected records", error);
     }
   };
-    
+
   const handleMessage = () => {
     setShowDialog(true); // Open the dialog
   };
@@ -95,10 +145,10 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
     setShowDialog(false); // Close the dialog
   };
 
-    return (
-        <>
-        <DataTable 
-           value={items}
+  return (
+    <>
+      <DataTable
+        value={items}
         ref={dt}
         removableSort
         onRowClick={onRowClick}
@@ -116,28 +166,112 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
         selection={selectedItems}
         onSelectionChange={(e) => setSelectedItems(e.value)}
         onCreateResult={onCreateResult}
-        >
-                <Column
+      >
+        <Column
           selectionMode="multiple"
           headerStyle={{ width: "3rem" }}
           body={checkboxTemplate}
         />
-<Column field="invoiceType" header="Invoice Type" body={dropdownTemplate0} filter={selectedFilterFields.includes("invoiceType")} hidden={selectedHideFields?.includes("invoiceType")}  style={{ minWidth: "8rem" }} />
-<Column field="invoiceDateAndTime" header="Invoice Date and Time" body={p_calendarTemplate1} filter={selectedFilterFields.includes("invoiceDateAndTime")} hidden={selectedHideFields?.includes("invoiceDateAndTime")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="originalEInvoiceReferenceNumber" header="Original e-Invoice Reference Number" body={pTemplate2} filter={selectedFilterFields.includes("originalEInvoiceReferenceNumber")} hidden={selectedHideFields?.includes("originalEInvoiceReferenceNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="no" header="No" body={p_numberTemplate3} filter={selectedFilterFields.includes("no")} hidden={selectedHideFields?.includes("no")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="classification" header="Classification" body={dropdownTemplate4} filter={selectedFilterFields.includes("classification")} hidden={selectedHideFields?.includes("classification")}  style={{ minWidth: "8rem" }} />
-<Column field="countryOfOrigin" header="Country of Origin" body={dropdownTemplate6} filter={selectedFilterFields.includes("countryOfOrigin")} hidden={selectedHideFields?.includes("countryOfOrigin")}  style={{ minWidth: "8rem" }} />
-<Column field="detailsOfTaxExemption" header="Details of Tax Exemption" body={pTemplate21} filter={selectedFilterFields.includes("detailsOfTaxExemption")} hidden={selectedHideFields?.includes("detailsOfTaxExemption")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="invoiceNumber" header="Invoice Number" body={pTemplate27} filter={selectedFilterFields.includes("invoiceNumber")} hidden={selectedHideFields?.includes("invoiceNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="consolidated" header="Consolidated" body={tickTemplate28} filter={selectedFilterFields.includes("consolidated")} hidden={selectedHideFields?.includes("consolidated")}  style={{ minWidth: "8rem" }} />
-<Column field="buyer" header="Buyer" body={dropdownTemplate30} filter={selectedFilterFields.includes("buyer")} hidden={selectedHideFields?.includes("buyer")}  style={{ minWidth: "8rem" }} />
-<Column field="supplier" header="Supplier" body={dropdownTemplate31} filter={selectedFilterFields.includes("supplier")} hidden={selectedHideFields?.includes("supplier")}  style={{ minWidth: "8rem" }} />
-            <Column header="Edit" body={editTemplate} />
-            <Column header="Delete" body={deleteTemplate} />
-            
-        </DataTable>
-
+        <Column
+          field="invoiceType"
+          header="Invoice Type"
+          body={dropdownTemplate0}
+          filter={selectedFilterFields.includes("invoiceType")}
+          hidden={selectedHideFields?.includes("invoiceType")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="invoiceDateAndTime"
+          header="Invoice Date and Time"
+          body={p_calendarTemplate1}
+          filter={selectedFilterFields.includes("invoiceDateAndTime")}
+          hidden={selectedHideFields?.includes("invoiceDateAndTime")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="originalEInvoiceReferenceNumber"
+          header="Original e-Invoice Reference Number"
+          body={pTemplate2}
+          filter={selectedFilterFields.includes(
+            "originalEInvoiceReferenceNumber",
+          )}
+          hidden={selectedHideFields?.includes(
+            "originalEInvoiceReferenceNumber",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="no"
+          header="No"
+          body={p_numberTemplate3}
+          filter={selectedFilterFields.includes("no")}
+          hidden={selectedHideFields?.includes("no")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="classification"
+          header="Classification"
+          body={dropdownTemplate4}
+          filter={selectedFilterFields.includes("classification")}
+          hidden={selectedHideFields?.includes("classification")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="countryOfOrigin"
+          header="Country of Origin"
+          body={dropdownTemplate6}
+          filter={selectedFilterFields.includes("countryOfOrigin")}
+          hidden={selectedHideFields?.includes("countryOfOrigin")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="detailsOfTaxExemption"
+          header="Details of Tax Exemption"
+          body={pTemplate21}
+          filter={selectedFilterFields.includes("detailsOfTaxExemption")}
+          hidden={selectedHideFields?.includes("detailsOfTaxExemption")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="invoiceNumber"
+          header="Invoice Number"
+          body={pTemplate27}
+          filter={selectedFilterFields.includes("invoiceNumber")}
+          hidden={selectedHideFields?.includes("invoiceNumber")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="consolidated"
+          header="Consolidated"
+          body={tickTemplate28}
+          filter={selectedFilterFields.includes("consolidated")}
+          hidden={selectedHideFields?.includes("consolidated")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyer"
+          header="Buyer"
+          body={dropdownTemplate30}
+          filter={selectedFilterFields.includes("buyer")}
+          hidden={selectedHideFields?.includes("buyer")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="supplier"
+          header="Supplier"
+          body={dropdownTemplate31}
+          filter={selectedFilterFields.includes("supplier")}
+          hidden={selectedHideFields?.includes("supplier")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column header="Edit" body={editTemplate} />
+        <Column header="Delete" body={deleteTemplate} />
+      </DataTable>
 
       {selectedItems.length > 0 ? (
         <div
@@ -313,20 +447,28 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
         </div>
       ) : null}
 
-
-        <Dialog header="Upload Invoices Data" visible={showUpload} onHide={() => setShowUpload(false)}>
-        <UploadService 
-          user={user} 
-          serviceName="invoices"            
+      <Dialog
+        header="Upload Invoices Data"
+        visible={showUpload}
+        onHide={() => setShowUpload(false)}
+      >
+        <UploadService
+          user={user}
+          serviceName="invoices"
           onUploadComplete={() => {
             setShowUpload(false); // Close the dialog after upload
-          }}/>
+          }}
+        />
       </Dialog>
 
-      <Dialog header="Search Invoices" visible={searchDialog} onHide={() => setSearchDialog(false)}>
-      Search
-    </Dialog>
-    <Dialog
+      <Dialog
+        header="Search Invoices"
+        visible={searchDialog}
+        onHide={() => setSearchDialog(false)}
+      >
+        Search
+      </Dialog>
+      <Dialog
         header="Filter Users"
         visible={showFilter}
         onHide={() => setShowFilter(false)}
@@ -351,7 +493,7 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
             console.log(selectedFilterFields);
             onClickSaveFilteredfields(selectedFilterFields);
             setSelectedFilterFields(selectedFilterFields);
-            setShowFilter(false)
+            setShowFilter(false);
           }}
         ></Button>
       </Dialog>
@@ -381,12 +523,12 @@ const dropdownTemplate31 = (rowData, { rowIndex }) => <p >{rowData.supplier?.nam
             console.log(selectedHideFields);
             onClickSaveHiddenfields(selectedHideFields);
             setSelectedHideFields(selectedHideFields);
-            setShowColumns(false)
+            setShowColumns(false);
           }}
         ></Button>
       </Dialog>
-        </>
-    );
+    </>
+  );
 };
 
 export default InvoicesDataTable;

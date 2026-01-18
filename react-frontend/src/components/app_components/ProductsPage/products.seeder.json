@@ -1,14 +1,14 @@
 [
-    {
-        "productName": "Smartphone",
-        "quantity": 1,
-        "unitPrice": 2500,
-        "measurement": "C81-radian"
-    },
-    {
-        "productName": "Food",
-        "quantity": 1,
-        "unitPrice": 2500,
-        "measurement": "C81-radian"
-    }
+  {
+    "productName": "Smartphone",
+    "quantity": 1,
+    "unitPrice": 2500,
+    "measurement": "C81-radian"
+  },
+  {
+    "productName": "Food",
+    "quantity": 1,
+    "unitPrice": 2500,
+    "measurement": "C81-radian"
+  }
 ]

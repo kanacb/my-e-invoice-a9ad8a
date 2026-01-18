@@ -9,14 +9,14 @@ import { Provider } from "react-redux";
 import * as models from "../../../models";
 
 test("renders currencyCodes page", async () => {
-    const store = init({ models });
-    render(
-        <Provider store={store}>
-            <MemoryRouter>
-                <CurrencyCodesPage />
-            </MemoryRouter>
-        </Provider>
-    );
-    expect(screen.getByRole("currencyCodes-datatable")).toBeInTheDocument();
-    expect(screen.getByRole("currencyCodes-add-button")).toBeInTheDocument();
+  const store = init({ models });
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <CurrencyCodesPage />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(screen.getByRole("currencyCodes-datatable")).toBeInTheDocument();
+  expect(screen.getByRole("currencyCodes-add-button")).toBeInTheDocument();
 });

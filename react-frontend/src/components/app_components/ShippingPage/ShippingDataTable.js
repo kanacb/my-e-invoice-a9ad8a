@@ -1,12 +1,12 @@
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import React, { useState, useRef, useEffect} from 'react';
-import _ from 'lodash';
-import { Button } from 'primereact/button';
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
+import React, { useState, useRef, useEffect } from "react";
+import _ from "lodash";
+import { Button } from "primereact/button";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import UploadService from "../../../services/UploadService";
-import { InputText } from 'primereact/inputtext';
+import { InputText } from "primereact/inputtext";
 import { Dialog } from "primereact/dialog";
 import { MultiSelect } from "primereact/multiselect";
 import DownloadCSV from "../../../utils/DownloadCSV";
@@ -17,37 +17,97 @@ import CopyIcon from "../../../assets/media/Clipboard.png";
 import DuplicateIcon from "../../../assets/media/Duplicate.png";
 import DeleteIcon from "../../../assets/media/Trash.png";
 
-const ShippingDataTable = ({ items, fields, onEditRow, onRowDelete, onRowClick, searchDialog, setSearchDialog,   showUpload, setShowUpload,
-    showFilter, setShowFilter,
-    showColumns, setShowColumns, onClickSaveFilteredfields ,
-    selectedFilterFields, setSelectedFilterFields,
-    selectedHideFields, setSelectedHideFields, onClickSaveHiddenfields, loading, user,   selectedDelete,
-  setSelectedDelete, onCreateResult}) => {
-    const dt = useRef(null);
-    const urlParams = useParams();
-    const [globalFilter, setGlobalFilter] = useState('');
+const ShippingDataTable = ({
+  items,
+  fields,
+  onEditRow,
+  onRowDelete,
+  onRowClick,
+  searchDialog,
+  setSearchDialog,
+  showUpload,
+  setShowUpload,
+  showFilter,
+  setShowFilter,
+  showColumns,
+  setShowColumns,
+  onClickSaveFilteredfields,
+  selectedFilterFields,
+  setSelectedFilterFields,
+  selectedHideFields,
+  setSelectedHideFields,
+  onClickSaveHiddenfields,
+  loading,
+  user,
+  selectedDelete,
+  setSelectedDelete,
+  onCreateResult,
+}) => {
+  const dt = useRef(null);
+  const urlParams = useParams();
+  const [globalFilter, setGlobalFilter] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
   const [data, setData] = useState([]);
 
-const dropdownTemplate0 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsName?.name}</p>
-const dropdownTemplate1 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsAddressCountryName?.countryCode}</p>
-const dropdownTemplate2 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsAddressStateName?.stateCode}</p>
-const pTemplate3 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsAddressCityName}</p>
-const p_numberTemplate4 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsAddressPostalZone}</p>
-const pTemplate5 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsTin}</p>
-const dropdownTemplate6 = (rowData, { rowIndex }) => <p >{rowData.shippingRecipientsIdentifierType?.identifyType}</p>
-const pTemplate7 = (rowData, { rowIndex }) => <p >{rowData.businessRegistrationNumberIdentificationNumberPassportNumber}</p>
-const pTemplate8 = (rowData, { rowIndex }) => <p >{rowData.billReferenceNumber}</p>
-const pTemplate9 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCustomsFormNo19Etc}</p>
-const pTemplate10 = (rowData, { rowIndex }) => <p >{rowData.incoterms}</p>
-const inputTextareaTemplate11 = (rowData, { rowIndex }) => <p >{rowData.freeTradeAgreementFtaInformation}</p>
-const pTemplate12 = (rowData, { rowIndex }) => <p >{rowData.authorisationNumberForCertifiedExporter}</p>
-const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCustomsFormNo2}</p>
-    const editTemplate = (rowData, { rowIndex }) => <Button onClick={() => onEditRow(rowData, rowIndex)} icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`} className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`} />;
-    const deleteTemplate = (rowData, { rowIndex }) => <Button onClick={() => onRowDelete(rowData._id)} icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text" />;
-    
-      const checkboxTemplate = (rowData) => (
+  const dropdownTemplate0 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsName?.name}</p>
+  );
+  const dropdownTemplate1 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsAddressCountryName?.countryCode}</p>
+  );
+  const dropdownTemplate2 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsAddressStateName?.stateCode}</p>
+  );
+  const pTemplate3 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsAddressCityName}</p>
+  );
+  const p_numberTemplate4 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsAddressPostalZone}</p>
+  );
+  const pTemplate5 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsTin}</p>
+  );
+  const dropdownTemplate6 = (rowData, { rowIndex }) => (
+    <p>{rowData.shippingRecipientsIdentifierType?.identifyType}</p>
+  );
+  const pTemplate7 = (rowData, { rowIndex }) => (
+    <p>
+      {rowData.businessRegistrationNumberIdentificationNumberPassportNumber}
+    </p>
+  );
+  const pTemplate8 = (rowData, { rowIndex }) => (
+    <p>{rowData.billReferenceNumber}</p>
+  );
+  const pTemplate9 = (rowData, { rowIndex }) => (
+    <p>{rowData.referenceNumberOfCustomsFormNo19Etc}</p>
+  );
+  const pTemplate10 = (rowData, { rowIndex }) => <p>{rowData.incoterms}</p>;
+  const inputTextareaTemplate11 = (rowData, { rowIndex }) => (
+    <p>{rowData.freeTradeAgreementFtaInformation}</p>
+  );
+  const pTemplate12 = (rowData, { rowIndex }) => (
+    <p>{rowData.authorisationNumberForCertifiedExporter}</p>
+  );
+  const pTemplate13 = (rowData, { rowIndex }) => (
+    <p>{rowData.referenceNumberOfCustomsFormNo2}</p>
+  );
+  const editTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onEditRow(rowData, rowIndex)}
+      icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`}
+      className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`}
+    />
+  );
+  const deleteTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onRowDelete(rowData._id)}
+      icon="pi pi-times"
+      className="p-button-rounded p-button-danger p-button-text"
+    />
+  );
+
+  const checkboxTemplate = (rowData) => (
     <Checkbox
       checked={selectedItems.some((item) => item._id === rowData._id)}
       onChange={(e) => {
@@ -88,7 +148,7 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
       console.error("Failed to delete selected records", error);
     }
   };
-    
+
   const handleMessage = () => {
     setShowDialog(true); // Open the dialog
   };
@@ -97,10 +157,10 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
     setShowDialog(false); // Close the dialog
   };
 
-    return (
-        <>
-        <DataTable 
-           value={items}
+  return (
+    <>
+      <DataTable
+        value={items}
         ref={dt}
         removableSort
         onRowClick={onRowClick}
@@ -118,39 +178,185 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
         selection={selectedItems}
         onSelectionChange={(e) => setSelectedItems(e.value)}
         onCreateResult={onCreateResult}
-        >
-                <Column
+      >
+        <Column
           selectionMode="multiple"
           headerStyle={{ width: "3rem" }}
           body={checkboxTemplate}
         />
-<Column field="shippingRecipientsName" header="Shipping Recipient's Name" body={dropdownTemplate0} filter={selectedFilterFields.includes("shippingRecipientsName")} hidden={selectedHideFields?.includes("shippingRecipientsName")}  style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsAddressCountryName" header="Shipping Recipient’s Address
+        <Column
+          field="shippingRecipientsName"
+          header="Shipping Recipient's Name"
+          body={dropdownTemplate0}
+          filter={selectedFilterFields.includes("shippingRecipientsName")}
+          hidden={selectedHideFields?.includes("shippingRecipientsName")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsAddressCountryName"
+          header="Shipping Recipient’s Address
 
-(Country name)" body={dropdownTemplate1} filter={selectedFilterFields.includes("shippingRecipientsAddressCountryName")} hidden={selectedHideFields?.includes("shippingRecipientsAddressCountryName")}  style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsAddressStateName" header="Shipping Recipient’s Address
+(Country name)"
+          body={dropdownTemplate1}
+          filter={selectedFilterFields.includes(
+            "shippingRecipientsAddressCountryName",
+          )}
+          hidden={selectedHideFields?.includes(
+            "shippingRecipientsAddressCountryName",
+          )}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsAddressStateName"
+          header="Shipping Recipient’s Address
 
-(State name)" body={dropdownTemplate2} filter={selectedFilterFields.includes("shippingRecipientsAddressStateName")} hidden={selectedHideFields?.includes("shippingRecipientsAddressStateName")}  style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsAddressCityName" header="Shipping Recipient’s Address
+(State name)"
+          body={dropdownTemplate2}
+          filter={selectedFilterFields.includes(
+            "shippingRecipientsAddressStateName",
+          )}
+          hidden={selectedHideFields?.includes(
+            "shippingRecipientsAddressStateName",
+          )}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsAddressCityName"
+          header="Shipping Recipient’s Address
 
-(City name)" body={pTemplate3} filter={selectedFilterFields.includes("shippingRecipientsAddressCityName")} hidden={selectedHideFields?.includes("shippingRecipientsAddressCityName")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsAddressPostalZone" header="Shipping Recipient’s Address
+(City name)"
+          body={pTemplate3}
+          filter={selectedFilterFields.includes(
+            "shippingRecipientsAddressCityName",
+          )}
+          hidden={selectedHideFields?.includes(
+            "shippingRecipientsAddressCityName",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsAddressPostalZone"
+          header="Shipping Recipient’s Address
 
-(Postal Zone)" body={p_numberTemplate4} filter={selectedFilterFields.includes("shippingRecipientsAddressPostalZone")} hidden={selectedHideFields?.includes("shippingRecipientsAddressPostalZone")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsTin" header="Shipping Recipient's TIN" body={pTemplate5} filter={selectedFilterFields.includes("shippingRecipientsTin")} hidden={selectedHideFields?.includes("shippingRecipientsTin")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="shippingRecipientsIdentifierType" header="Shipping Recipient's Identifier type" body={dropdownTemplate6} filter={selectedFilterFields.includes("shippingRecipientsIdentifierType")} hidden={selectedHideFields?.includes("shippingRecipientsIdentifierType")}  style={{ minWidth: "8rem" }} />
-<Column field="businessRegistrationNumberIdentificationNumberPassportNumber" header="Business registration number/ Identification number / Passport number" body={pTemplate7} filter={selectedFilterFields.includes("businessRegistrationNumberIdentificationNumberPassportNumber")} hidden={selectedHideFields?.includes("businessRegistrationNumberIdentificationNumberPassportNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="billReferenceNumber" header="Bill  Reference Number" body={pTemplate8} filter={selectedFilterFields.includes("billReferenceNumber")} hidden={selectedHideFields?.includes("billReferenceNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="referenceNumberOfCustomsFormNo19Etc" header="Reference Number of Customs Form No.1, 9, etc." body={pTemplate9} filter={selectedFilterFields.includes("referenceNumberOfCustomsFormNo19Etc")} hidden={selectedHideFields?.includes("referenceNumberOfCustomsFormNo19Etc")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="incoterms" header="Incoterms" body={pTemplate10} filter={selectedFilterFields.includes("incoterms")} hidden={selectedHideFields?.includes("incoterms")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="freeTradeAgreementFtaInformation" header="Free Trade Agreement (FTA) Information" body={inputTextareaTemplate11} filter={selectedFilterFields.includes("freeTradeAgreementFtaInformation")} hidden={selectedHideFields?.includes("freeTradeAgreementFtaInformation")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="authorisationNumberForCertifiedExporter" header="Authorisation Number for Certified Exporter" body={pTemplate12} filter={selectedFilterFields.includes("authorisationNumberForCertifiedExporter")} hidden={selectedHideFields?.includes("authorisationNumberForCertifiedExporter")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="referenceNumberOfCustomsFormNo2" header="Reference Number of Customs Form No.2" body={pTemplate13} filter={selectedFilterFields.includes("referenceNumberOfCustomsFormNo2")} hidden={selectedHideFields?.includes("referenceNumberOfCustomsFormNo2")}  sortable style={{ minWidth: "8rem" }} />
-            <Column header="Edit" body={editTemplate} />
-            <Column header="Delete" body={deleteTemplate} />
-            
-        </DataTable>
-
+(Postal Zone)"
+          body={p_numberTemplate4}
+          filter={selectedFilterFields.includes(
+            "shippingRecipientsAddressPostalZone",
+          )}
+          hidden={selectedHideFields?.includes(
+            "shippingRecipientsAddressPostalZone",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsTin"
+          header="Shipping Recipient's TIN"
+          body={pTemplate5}
+          filter={selectedFilterFields.includes("shippingRecipientsTin")}
+          hidden={selectedHideFields?.includes("shippingRecipientsTin")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="shippingRecipientsIdentifierType"
+          header="Shipping Recipient's Identifier type"
+          body={dropdownTemplate6}
+          filter={selectedFilterFields.includes(
+            "shippingRecipientsIdentifierType",
+          )}
+          hidden={selectedHideFields?.includes(
+            "shippingRecipientsIdentifierType",
+          )}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="businessRegistrationNumberIdentificationNumberPassportNumber"
+          header="Business registration number/ Identification number / Passport number"
+          body={pTemplate7}
+          filter={selectedFilterFields.includes(
+            "businessRegistrationNumberIdentificationNumberPassportNumber",
+          )}
+          hidden={selectedHideFields?.includes(
+            "businessRegistrationNumberIdentificationNumberPassportNumber",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="billReferenceNumber"
+          header="Bill  Reference Number"
+          body={pTemplate8}
+          filter={selectedFilterFields.includes("billReferenceNumber")}
+          hidden={selectedHideFields?.includes("billReferenceNumber")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="referenceNumberOfCustomsFormNo19Etc"
+          header="Reference Number of Customs Form No.1, 9, etc."
+          body={pTemplate9}
+          filter={selectedFilterFields.includes(
+            "referenceNumberOfCustomsFormNo19Etc",
+          )}
+          hidden={selectedHideFields?.includes(
+            "referenceNumberOfCustomsFormNo19Etc",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="incoterms"
+          header="Incoterms"
+          body={pTemplate10}
+          filter={selectedFilterFields.includes("incoterms")}
+          hidden={selectedHideFields?.includes("incoterms")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="freeTradeAgreementFtaInformation"
+          header="Free Trade Agreement (FTA) Information"
+          body={inputTextareaTemplate11}
+          filter={selectedFilterFields.includes(
+            "freeTradeAgreementFtaInformation",
+          )}
+          hidden={selectedHideFields?.includes(
+            "freeTradeAgreementFtaInformation",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="authorisationNumberForCertifiedExporter"
+          header="Authorisation Number for Certified Exporter"
+          body={pTemplate12}
+          filter={selectedFilterFields.includes(
+            "authorisationNumberForCertifiedExporter",
+          )}
+          hidden={selectedHideFields?.includes(
+            "authorisationNumberForCertifiedExporter",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="referenceNumberOfCustomsFormNo2"
+          header="Reference Number of Customs Form No.2"
+          body={pTemplate13}
+          filter={selectedFilterFields.includes(
+            "referenceNumberOfCustomsFormNo2",
+          )}
+          hidden={selectedHideFields?.includes(
+            "referenceNumberOfCustomsFormNo2",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column header="Edit" body={editTemplate} />
+        <Column header="Delete" body={deleteTemplate} />
+      </DataTable>
 
       {selectedItems.length > 0 ? (
         <div
@@ -326,20 +532,28 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
         </div>
       ) : null}
 
-
-        <Dialog header="Upload Shipping Data" visible={showUpload} onHide={() => setShowUpload(false)}>
-        <UploadService 
-          user={user} 
-          serviceName="shipping"            
+      <Dialog
+        header="Upload Shipping Data"
+        visible={showUpload}
+        onHide={() => setShowUpload(false)}
+      >
+        <UploadService
+          user={user}
+          serviceName="shipping"
           onUploadComplete={() => {
             setShowUpload(false); // Close the dialog after upload
-          }}/>
+          }}
+        />
       </Dialog>
 
-      <Dialog header="Search Shipping" visible={searchDialog} onHide={() => setSearchDialog(false)}>
-      Search
-    </Dialog>
-    <Dialog
+      <Dialog
+        header="Search Shipping"
+        visible={searchDialog}
+        onHide={() => setSearchDialog(false)}
+      >
+        Search
+      </Dialog>
+      <Dialog
         header="Filter Users"
         visible={showFilter}
         onHide={() => setShowFilter(false)}
@@ -364,7 +578,7 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
             console.log(selectedFilterFields);
             onClickSaveFilteredfields(selectedFilterFields);
             setSelectedFilterFields(selectedFilterFields);
-            setShowFilter(false)
+            setShowFilter(false);
           }}
         ></Button>
       </Dialog>
@@ -394,12 +608,12 @@ const pTemplate13 = (rowData, { rowIndex }) => <p >{rowData.referenceNumberOfCus
             console.log(selectedHideFields);
             onClickSaveHiddenfields(selectedHideFields);
             setSelectedHideFields(selectedHideFields);
-            setShowColumns(false)
+            setShowColumns(false);
           }}
         ></Button>
       </Dialog>
-        </>
-    );
+    </>
+  );
 };
 
 export default ShippingDataTable;

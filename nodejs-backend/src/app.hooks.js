@@ -1,5 +1,5 @@
 // Application hooks that run for every service
-const logErrors = require("../src/utils/logErrors");
+// const logErrors = require('../src/utils/logErrors');
 const audit = require("../src/utils/audit");
 const createNotification = require("../src/utils/notificationService");
 

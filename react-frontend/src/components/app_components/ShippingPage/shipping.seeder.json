@@ -1,34 +1,34 @@
 [
-    {
-        "shippingRecipientsName": "Jame",
-        "shippingRecipientsAddressCountryName": "MYS - MALAYSIA",
-        "shippingRecipientsAddressStateName": "1 - Johor",
-        "shippingRecipientsAddressCityName": "BimoBanguman Merdekanthly",
-        "shippingRecipientsAddressPostalZone": 50480,
-        "shippingRecipientsTin": "E12345678912",
-        "shippingRecipientsIdentifierType": "BRN - Business Registration number",
-        "businessRegistrationNumberIdentificationNumberPassportNumber": "EI000000049",
-        "billReferenceNumber": "E12345678912",
-        "referenceNumberOfCustomsFormNo19Etc": "E12345678912",
-        "incoterms": "CIF",
-        "freeTradeAgreementFtaInformation": "ASEAN - Australia - New Zealand FTA (AANZFTA)",
-        "authorisationNumberForCertifiedExporter": "CPT-CCN-W-211111-KL-000002",
-        "referenceNumberOfCustomsFormNo2": "E12345678963"
-    },
-    {
-        "shippingRecipientsName": "Andy",
-        "shippingRecipientsAddressCountryName": "MYS - MALAYSIA",
-        "shippingRecipientsAddressStateName": "1 - Johor",
-        "shippingRecipientsAddressCityName": "BimoBanguman Merdekanthly",
-        "shippingRecipientsAddressPostalZone": 50480,
-        "shippingRecipientsTin": "E98765432100",
-        "shippingRecipientsIdentifierType": "BRN - Business Registration number",
-        "businessRegistrationNumberIdentificationNumberPassportNumber": "EI000000049",
-        "billReferenceNumber": "E98765432101",
-        "referenceNumberOfCustomsFormNo19Etc": "E98765432100",
-        "incoterms": "CIF",
-        "freeTradeAgreementFtaInformation": "ASEAN - Australia - New Zealand FTA (AANZFTA)",
-        "authorisationNumberForCertifiedExporter": "CPT-CCN-W-211111-KL-000002",
-        "referenceNumberOfCustomsFormNo2": "E198765432100"
-    }
+  {
+    "shippingRecipientsName": "Jame",
+    "shippingRecipientsAddressCountryName": "MYS - MALAYSIA",
+    "shippingRecipientsAddressStateName": "1 - Johor",
+    "shippingRecipientsAddressCityName": "BimoBanguman Merdekanthly",
+    "shippingRecipientsAddressPostalZone": 50480,
+    "shippingRecipientsTin": "E12345678912",
+    "shippingRecipientsIdentifierType": "BRN - Business Registration number",
+    "businessRegistrationNumberIdentificationNumberPassportNumber": "EI000000049",
+    "billReferenceNumber": "E12345678912",
+    "referenceNumberOfCustomsFormNo19Etc": "E12345678912",
+    "incoterms": "CIF",
+    "freeTradeAgreementFtaInformation": "ASEAN - Australia - New Zealand FTA (AANZFTA)",
+    "authorisationNumberForCertifiedExporter": "CPT-CCN-W-211111-KL-000002",
+    "referenceNumberOfCustomsFormNo2": "E12345678963"
+  },
+  {
+    "shippingRecipientsName": "Andy",
+    "shippingRecipientsAddressCountryName": "MYS - MALAYSIA",
+    "shippingRecipientsAddressStateName": "1 - Johor",
+    "shippingRecipientsAddressCityName": "BimoBanguman Merdekanthly",
+    "shippingRecipientsAddressPostalZone": 50480,
+    "shippingRecipientsTin": "E98765432100",
+    "shippingRecipientsIdentifierType": "BRN - Business Registration number",
+    "businessRegistrationNumberIdentificationNumberPassportNumber": "EI000000049",
+    "billReferenceNumber": "E98765432101",
+    "referenceNumberOfCustomsFormNo19Etc": "E98765432100",
+    "incoterms": "CIF",
+    "freeTradeAgreementFtaInformation": "ASEAN - Australia - New Zealand FTA (AANZFTA)",
+    "authorisationNumberForCertifiedExporter": "CPT-CCN-W-211111-KL-000002",
+    "referenceNumberOfCustomsFormNo2": "E198765432100"
+  }
 ]

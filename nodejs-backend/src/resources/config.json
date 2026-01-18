@@ -16,13 +16,7 @@
   "stack": [
     {
       "appName": "nodejs-backend",
-      "environments": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
+      "environments": [null, null, null, null, null],
       "pathToLogo": {
         "s": "/assets/applications_logos/nodejs-s.png",
         "l": "/assets/applications_logos/nodejs.png"
@@ -33,13 +27,7 @@
     },
     {
       "appName": "react-frontend",
-      "environments": [
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
+      "environments": [null, null, null, null, null],
       "pathToLogo": {
         "s": "/assets/applications_logos/react-s.png",
         "l": "/assets/applications_logos/react.png"
@@ -351,9 +339,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "invoiceType",
@@ -399,9 +385,7 @@
             "refServiceName": "eInvoiceTypes",
             "refDatabaseName": "e_invoice_types",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "eInvoiceTypes"
-            ]
+            "identifierFieldName": ["eInvoiceTypes"]
           }
         },
         {
@@ -592,9 +576,7 @@
             "refServiceName": "classificationCodes",
             "refDatabaseName": "classification_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "classificationCode"
-            ]
+            "identifierFieldName": ["classificationCode"]
           }
         },
         {
@@ -689,9 +671,7 @@
             "refServiceName": "countryCodes",
             "refDatabaseName": "country_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "countryCode"
-            ]
+            "identifierFieldName": ["countryCode"]
           }
         },
         {
@@ -786,9 +766,7 @@
             "refServiceName": "taxTypes",
             "refDatabaseName": "tax_types",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "taxType"
-            ]
+            "identifierFieldName": ["taxType"]
           }
         },
         {
@@ -1267,9 +1245,7 @@
             "refServiceName": "taxTypes",
             "refDatabaseName": "tax_types",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "taxType"
-            ]
+            "identifierFieldName": ["taxType"]
           }
         },
         {
@@ -1792,9 +1768,7 @@
             "refServiceName": "team",
             "refDatabaseName": "team",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -1841,9 +1815,7 @@
             "refServiceName": "companies",
             "refDatabaseName": "companies",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -1890,9 +1862,7 @@
             "refServiceName": "companies",
             "refDatabaseName": "companies",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         }
       ],
@@ -1976,9 +1946,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "productName",
@@ -2168,9 +2136,7 @@
             "refServiceName": "measurements",
             "refDatabaseName": "measurements",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "measurement"
-            ]
+            "identifierFieldName": ["measurement"]
           }
         },
         {
@@ -2217,9 +2183,7 @@
             "refServiceName": "invoices",
             "refDatabaseName": "invoices",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "originalEInvoiceReferenceNumber"
-            ]
+            "identifierFieldName": ["originalEInvoiceReferenceNumber"]
           }
         }
       ],
@@ -2254,9 +2218,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "suppliersName",
@@ -2302,9 +2264,7 @@
             "refServiceName": "companies",
             "refDatabaseName": "companies",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -2447,9 +2407,7 @@
             "refServiceName": "identifyType",
             "refDatabaseName": "identify_type",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "identifyType"
-            ]
+            "identifierFieldName": ["identifyType"]
           }
         },
         {
@@ -2736,9 +2694,7 @@
             "refServiceName": "phoneNumberPrefix",
             "refDatabaseName": "phone_number_prefix",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "phoneNumberPrefix"
-            ]
+            "identifierFieldName": ["phoneNumberPrefix"]
           }
         },
         {
@@ -2833,9 +2789,7 @@
             "refServiceName": "countryCodes",
             "refDatabaseName": "country_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "countryCode"
-            ]
+            "identifierFieldName": ["countryCode"]
           }
         },
         {
@@ -2882,9 +2836,7 @@
             "refServiceName": "stateCodes",
             "refDatabaseName": "state_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "stateCode"
-            ]
+            "identifierFieldName": ["stateCode"]
           }
         },
         {
@@ -2968,9 +2920,7 @@
           "reverse": false,
           "morph": false,
           "through": false,
-          "args": [
-            "8"
-          ],
+          "args": ["8"],
           "auditing": false,
           "warehousing": false,
           "searchable": false,
@@ -3267,9 +3217,7 @@
             "refServiceName": "team",
             "refDatabaseName": "team",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -3316,9 +3264,7 @@
             "refServiceName": "invoices",
             "refDatabaseName": "invoices",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "invoiceType"
-            ]
+            "identifierFieldName": ["invoiceType"]
           }
         }
       ],
@@ -3385,9 +3331,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "buyersName",
@@ -3433,9 +3377,7 @@
             "refServiceName": "companies",
             "refDatabaseName": "companies",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -3578,9 +3520,7 @@
             "refServiceName": "identifyType",
             "refDatabaseName": "identify_type",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "identifyType"
-            ]
+            "identifierFieldName": ["identifyType"]
           }
         },
         {
@@ -3723,9 +3663,7 @@
             "refServiceName": "countryCodes",
             "refDatabaseName": "country_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "countryCode"
-            ]
+            "identifierFieldName": ["countryCode"]
           }
         },
         {
@@ -3772,9 +3710,7 @@
             "refServiceName": "stateCodes",
             "refDatabaseName": "state_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "stateCode"
-            ]
+            "identifierFieldName": ["stateCode"]
           }
         },
         {
@@ -3917,9 +3853,7 @@
             "refServiceName": "phoneNumberPrefix",
             "refDatabaseName": "phone_number_prefix",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "phoneNumberPrefix"
-            ]
+            "identifierFieldName": ["phoneNumberPrefix"]
           }
         },
         {
@@ -4014,9 +3948,7 @@
             "refServiceName": "currencyCodes",
             "refDatabaseName": "currency_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "currencyCode"
-            ]
+            "identifierFieldName": ["currencyCode"]
           }
         },
         {
@@ -4111,9 +4043,7 @@
             "refServiceName": "frequencyOfBilling",
             "refDatabaseName": "frequency_of_billing",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "frequencyOfBilling"
-            ]
+            "identifierFieldName": ["frequencyOfBilling"]
           }
         },
         {
@@ -4256,9 +4186,7 @@
             "refServiceName": "paymentModes",
             "refDatabaseName": "payment_modes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "paymentMode"
-            ]
+            "identifierFieldName": ["paymentMode"]
           }
         },
         {
@@ -4305,9 +4233,7 @@
             "refServiceName": "team",
             "refDatabaseName": "team",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -4354,9 +4280,7 @@
             "refServiceName": "invoices",
             "refDatabaseName": "invoices",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "invoiceType"
-            ]
+            "identifierFieldName": ["invoiceType"]
           }
         }
       ],
@@ -4419,9 +4343,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "shippingRecipientsName",
@@ -4467,9 +4389,7 @@
             "refServiceName": "companies",
             "refDatabaseName": "companies",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         },
         {
@@ -4516,9 +4436,7 @@
             "refServiceName": "countryCodes",
             "refDatabaseName": "country_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "countryCode"
-            ]
+            "identifierFieldName": ["countryCode"]
           }
         },
         {
@@ -4565,9 +4483,7 @@
             "refServiceName": "stateCodes",
             "refDatabaseName": "state_codes",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "stateCode"
-            ]
+            "identifierFieldName": ["stateCode"]
           }
         },
         {
@@ -4602,9 +4518,7 @@
           "reverse": false,
           "morph": false,
           "through": false,
-          "args": [
-            "8"
-          ],
+          "args": ["8"],
           "auditing": false,
           "warehousing": false,
           "searchable": false,
@@ -4697,9 +4611,7 @@
           "reverse": false,
           "morph": false,
           "through": false,
-          "args": [
-            "8"
-          ],
+          "args": ["8"],
           "auditing": false,
           "warehousing": false,
           "searchable": false,
@@ -4756,9 +4668,7 @@
             "refServiceName": "identifyType",
             "refDatabaseName": "identify_type",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "identifyType"
-            ]
+            "identifierFieldName": ["identifyType"]
           }
         },
         {
@@ -4937,9 +4847,7 @@
           "reverse": false,
           "morph": false,
           "through": false,
-          "args": [
-            "8"
-          ],
+          "args": ["8"],
           "auditing": false,
           "warehousing": false,
           "searchable": false,
@@ -5148,9 +5056,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "measurement",
@@ -11508,9 +11414,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "identifyType",
@@ -11589,9 +11493,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "eInvoiceTypes",
@@ -11682,9 +11584,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "classificationCode",
@@ -11886,9 +11786,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "paymentMode",
@@ -11979,9 +11877,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "frequencyOfBilling",
@@ -12075,9 +11971,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "currencyCode",
@@ -12684,9 +12578,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "phoneNumberPrefix",
@@ -12783,9 +12675,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "stateCode",
@@ -12906,9 +12796,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "countryCode",
@@ -13722,9 +13610,7 @@
       "edit": true,
       "delete": true,
       "single": true,
-      "sidebar": [
-        "users"
-      ],
+      "sidebar": ["users"],
       "schemaList": [
         {
           "fieldName": "taxType",
@@ -13902,9 +13788,7 @@
             "refServiceName": "users",
             "refDatabaseName": "users",
             "relationshipType": "one-to-one",
-            "identifierFieldName": [
-              "name"
-            ]
+            "identifierFieldName": ["name"]
           }
         }
       ],

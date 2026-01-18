@@ -1,12 +1,12 @@
-import { Column } from 'primereact/column';
-import { DataTable } from 'primereact/datatable';
-import React, { useState, useRef, useEffect} from 'react';
-import _ from 'lodash';
-import { Button } from 'primereact/button';
+import { Column } from "primereact/column";
+import { DataTable } from "primereact/datatable";
+import React, { useState, useRef, useEffect } from "react";
+import _ from "lodash";
+import { Button } from "primereact/button";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import UploadService from "../../../services/UploadService";
-import { InputText } from 'primereact/inputtext';
+import { InputText } from "primereact/inputtext";
 import { Dialog } from "primereact/dialog";
 import { MultiSelect } from "primereact/multiselect";
 import DownloadCSV from "../../../utils/DownloadCSV";
@@ -17,41 +17,107 @@ import CopyIcon from "../../../assets/media/Clipboard.png";
 import DuplicateIcon from "../../../assets/media/Duplicate.png";
 import DeleteIcon from "../../../assets/media/Trash.png";
 
-const BuyersDataTable = ({ items, fields, onEditRow, onRowDelete, onRowClick, searchDialog, setSearchDialog,   showUpload, setShowUpload,
-    showFilter, setShowFilter,
-    showColumns, setShowColumns, onClickSaveFilteredfields ,
-    selectedFilterFields, setSelectedFilterFields,
-    selectedHideFields, setSelectedHideFields, onClickSaveHiddenfields, loading, user,   selectedDelete,
-  setSelectedDelete, onCreateResult}) => {
-    const dt = useRef(null);
-    const urlParams = useParams();
-    const [globalFilter, setGlobalFilter] = useState('');
+const BuyersDataTable = ({
+  items,
+  fields,
+  onEditRow,
+  onRowDelete,
+  onRowClick,
+  searchDialog,
+  setSearchDialog,
+  showUpload,
+  setShowUpload,
+  showFilter,
+  setShowFilter,
+  showColumns,
+  setShowColumns,
+  onClickSaveFilteredfields,
+  selectedFilterFields,
+  setSelectedFilterFields,
+  selectedHideFields,
+  setSelectedHideFields,
+  onClickSaveHiddenfields,
+  loading,
+  user,
+  selectedDelete,
+  setSelectedDelete,
+  onCreateResult,
+}) => {
+  const dt = useRef(null);
+  const urlParams = useParams();
+  const [globalFilter, setGlobalFilter] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showDialog, setShowDialog] = useState(false);
   const [data, setData] = useState([]);
 
-const dropdownTemplate0 = (rowData, { rowIndex }) => <p >{rowData.buyersName?.name}</p>
-const pTemplate1 = (rowData, { rowIndex }) => <p >{rowData.buyersTin}</p>
-const pTemplate2 = (rowData, { rowIndex }) => <p >{rowData.buyersSstRegistrationNumber}</p>
-const dropdownTemplate3 = (rowData, { rowIndex }) => <p >{rowData.identifierType?.identifyType}</p>
-const pTemplate4 = (rowData, { rowIndex }) => <p >{rowData.businessRegistrationNumberIdentificationNumberPassportNumber}</p>
-const pTemplate5 = (rowData, { rowIndex }) => <p >{rowData.buyersEMail}</p>
-const dropdownTemplate6 = (rowData, { rowIndex }) => <p >{rowData.buyersAddressCountryName?.countryCode}</p>
-const dropdownTemplate7 = (rowData, { rowIndex }) => <p >{rowData.buyersAddressStateName?.stateCode}</p>
-const pTemplate8 = (rowData, { rowIndex }) => <p >{rowData.buyersAddressCityName}</p>
-const p_numberTemplate9 = (rowData, { rowIndex }) => <p >{rowData.buyersAddressPostalZone}</p>
-const dropdownTemplate10 = (rowData, { rowIndex }) => <p >{rowData.theFirstBuyersContactNumber?.phoneNumberPrefix}</p>
-const p_numberTemplate11 = (rowData, { rowIndex }) => <p >{rowData.buyersContactNumber}</p>
-const dropdownTemplate12 = (rowData, { rowIndex }) => <p >{rowData.invoiceCurrency?.currencyCode}</p>
-const p_numberTemplate13 = (rowData, { rowIndex }) => <p >{rowData.currencyExchangeRate}</p>
-const dropdownTemplate14 = (rowData, { rowIndex }) => <p >{rowData.frequencyOfBilling?.frequencyOfBilling}</p>
-const p_dateTemplate15 = (rowData, { rowIndex }) => <p >{(new Date(rowData.billingPeriodStartDate)).toLocaleDateString()}</p>
-const p_dateTemplate16 = (rowData, { rowIndex }) => <p >{(new Date(rowData.billingPeriodEndDate)).toLocaleDateString()}</p>
-const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.paymentMode}</p>
-    const editTemplate = (rowData, { rowIndex }) => <Button onClick={() => onEditRow(rowData, rowIndex)} icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`} className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`} />;
-    const deleteTemplate = (rowData, { rowIndex }) => <Button onClick={() => onRowDelete(rowData._id)} icon="pi pi-times" className="p-button-rounded p-button-danger p-button-text" />;
-    
-      const checkboxTemplate = (rowData) => (
+  const dropdownTemplate0 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersName?.name}</p>
+  );
+  const pTemplate1 = (rowData, { rowIndex }) => <p>{rowData.buyersTin}</p>;
+  const pTemplate2 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersSstRegistrationNumber}</p>
+  );
+  const dropdownTemplate3 = (rowData, { rowIndex }) => (
+    <p>{rowData.identifierType?.identifyType}</p>
+  );
+  const pTemplate4 = (rowData, { rowIndex }) => (
+    <p>
+      {rowData.businessRegistrationNumberIdentificationNumberPassportNumber}
+    </p>
+  );
+  const pTemplate5 = (rowData, { rowIndex }) => <p>{rowData.buyersEMail}</p>;
+  const dropdownTemplate6 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersAddressCountryName?.countryCode}</p>
+  );
+  const dropdownTemplate7 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersAddressStateName?.stateCode}</p>
+  );
+  const pTemplate8 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersAddressCityName}</p>
+  );
+  const p_numberTemplate9 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersAddressPostalZone}</p>
+  );
+  const dropdownTemplate10 = (rowData, { rowIndex }) => (
+    <p>{rowData.theFirstBuyersContactNumber?.phoneNumberPrefix}</p>
+  );
+  const p_numberTemplate11 = (rowData, { rowIndex }) => (
+    <p>{rowData.buyersContactNumber}</p>
+  );
+  const dropdownTemplate12 = (rowData, { rowIndex }) => (
+    <p>{rowData.invoiceCurrency?.currencyCode}</p>
+  );
+  const p_numberTemplate13 = (rowData, { rowIndex }) => (
+    <p>{rowData.currencyExchangeRate}</p>
+  );
+  const dropdownTemplate14 = (rowData, { rowIndex }) => (
+    <p>{rowData.frequencyOfBilling?.frequencyOfBilling}</p>
+  );
+  const p_dateTemplate15 = (rowData, { rowIndex }) => (
+    <p>{new Date(rowData.billingPeriodStartDate).toLocaleDateString()}</p>
+  );
+  const p_dateTemplate16 = (rowData, { rowIndex }) => (
+    <p>{new Date(rowData.billingPeriodEndDate).toLocaleDateString()}</p>
+  );
+  const dropdownTemplate17 = (rowData, { rowIndex }) => (
+    <p>{rowData.paymentMode?.paymentMode}</p>
+  );
+  const editTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onEditRow(rowData, rowIndex)}
+      icon={`pi ${rowData.isEdit ? "pi-check" : "pi-pencil"}`}
+      className={`p-button-rounded p-button-text ${rowData.isEdit ? "p-button-success" : "p-button-warning"}`}
+    />
+  );
+  const deleteTemplate = (rowData, { rowIndex }) => (
+    <Button
+      onClick={() => onRowDelete(rowData._id)}
+      icon="pi pi-times"
+      className="p-button-rounded p-button-danger p-button-text"
+    />
+  );
+
+  const checkboxTemplate = (rowData) => (
     <Checkbox
       checked={selectedItems.some((item) => item._id === rowData._id)}
       onChange={(e) => {
@@ -92,7 +158,7 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
       console.error("Failed to delete selected records", error);
     }
   };
-    
+
   const handleMessage = () => {
     setShowDialog(true); // Open the dialog
   };
@@ -101,10 +167,10 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
     setShowDialog(false); // Close the dialog
   };
 
-    return (
-        <>
-        <DataTable 
-           value={items}
+  return (
+    <>
+      <DataTable
+        value={items}
         ref={dt}
         removableSort
         onRowClick={onRowClick}
@@ -122,35 +188,173 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
         selection={selectedItems}
         onSelectionChange={(e) => setSelectedItems(e.value)}
         onCreateResult={onCreateResult}
-        >
-                <Column
+      >
+        <Column
           selectionMode="multiple"
           headerStyle={{ width: "3rem" }}
           body={checkboxTemplate}
         />
-<Column field="buyersName" header="Buyer's name (*)" body={dropdownTemplate0} filter={selectedFilterFields.includes("buyersName")} hidden={selectedHideFields?.includes("buyersName")}  style={{ minWidth: "8rem" }} />
-<Column field="buyersTin" header="Buyer's TIN" body={pTemplate1} filter={selectedFilterFields.includes("buyersTin")} hidden={selectedHideFields?.includes("buyersTin")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="buyersSstRegistrationNumber" header="Buyer's SST Registration Number" body={pTemplate2} filter={selectedFilterFields.includes("buyersSstRegistrationNumber")} hidden={selectedHideFields?.includes("buyersSstRegistrationNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="identifierType" header="Identifier Type" body={dropdownTemplate3} filter={selectedFilterFields.includes("identifierType")} hidden={selectedHideFields?.includes("identifierType")}  style={{ minWidth: "8rem" }} />
-<Column field="businessRegistrationNumberIdentificationNumberPassportNumber" header="Business registration number / Identification number / Passport number" body={pTemplate4} filter={selectedFilterFields.includes("businessRegistrationNumberIdentificationNumberPassportNumber")} hidden={selectedHideFields?.includes("businessRegistrationNumberIdentificationNumberPassportNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="buyersEMail" header="Buyer's e-mail" body={pTemplate5} filter={selectedFilterFields.includes("buyersEMail")} hidden={selectedHideFields?.includes("buyersEMail")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="buyersAddressCountryName" header="Buyer's address (Country name)" body={dropdownTemplate6} filter={selectedFilterFields.includes("buyersAddressCountryName")} hidden={selectedHideFields?.includes("buyersAddressCountryName")}  style={{ minWidth: "8rem" }} />
-<Column field="buyersAddressStateName" header="Buyer's address (State name)" body={dropdownTemplate7} filter={selectedFilterFields.includes("buyersAddressStateName")} hidden={selectedHideFields?.includes("buyersAddressStateName")}  style={{ minWidth: "8rem" }} />
-<Column field="buyersAddressCityName" header="Buyer's address (City name)" body={pTemplate8} filter={selectedFilterFields.includes("buyersAddressCityName")} hidden={selectedHideFields?.includes("buyersAddressCityName")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="buyersAddressPostalZone" header="Buyer's address (Postal zone)" body={p_numberTemplate9} filter={selectedFilterFields.includes("buyersAddressPostalZone")} hidden={selectedHideFields?.includes("buyersAddressPostalZone")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="theFirstBuyersContactNumber" header="The first buyer's contact number" body={dropdownTemplate10} filter={selectedFilterFields.includes("theFirstBuyersContactNumber")} hidden={selectedHideFields?.includes("theFirstBuyersContactNumber")}  style={{ minWidth: "8rem" }} />
-<Column field="buyersContactNumber" header="Buyer's Contact Number" body={p_numberTemplate11} filter={selectedFilterFields.includes("buyersContactNumber")} hidden={selectedHideFields?.includes("buyersContactNumber")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="invoiceCurrency" header="Invoice Currency" body={dropdownTemplate12} filter={selectedFilterFields.includes("invoiceCurrency")} hidden={selectedHideFields?.includes("invoiceCurrency")}  style={{ minWidth: "8rem" }} />
-<Column field="currencyExchangeRate" header="Currency Exchange Rate" body={p_numberTemplate13} filter={selectedFilterFields.includes("currencyExchangeRate")} hidden={selectedHideFields?.includes("currencyExchangeRate")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="frequencyOfBilling" header="Frequency of Billing" body={dropdownTemplate14} filter={selectedFilterFields.includes("frequencyOfBilling")} hidden={selectedHideFields?.includes("frequencyOfBilling")}  style={{ minWidth: "8rem" }} />
-<Column field="billingPeriodStartDate" header="Billing Period Start Date" body={p_dateTemplate15} filter={selectedFilterFields.includes("billingPeriodStartDate")} hidden={selectedHideFields?.includes("billingPeriodStartDate")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="billingPeriodEndDate" header="Billing Period End Date" body={p_dateTemplate16} filter={selectedFilterFields.includes("billingPeriodEndDate")} hidden={selectedHideFields?.includes("billingPeriodEndDate")}  sortable style={{ minWidth: "8rem" }} />
-<Column field="paymentMode" header="Payment Mode" body={dropdownTemplate17} filter={selectedFilterFields.includes("paymentMode")} hidden={selectedHideFields?.includes("paymentMode")}  style={{ minWidth: "8rem" }} />
-            <Column header="Edit" body={editTemplate} />
-            <Column header="Delete" body={deleteTemplate} />
-            
-        </DataTable>
-
+        <Column
+          field="buyersName"
+          header="Buyer's name (*)"
+          body={dropdownTemplate0}
+          filter={selectedFilterFields.includes("buyersName")}
+          hidden={selectedHideFields?.includes("buyersName")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersTin"
+          header="Buyer's TIN"
+          body={pTemplate1}
+          filter={selectedFilterFields.includes("buyersTin")}
+          hidden={selectedHideFields?.includes("buyersTin")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersSstRegistrationNumber"
+          header="Buyer's SST Registration Number"
+          body={pTemplate2}
+          filter={selectedFilterFields.includes("buyersSstRegistrationNumber")}
+          hidden={selectedHideFields?.includes("buyersSstRegistrationNumber")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="identifierType"
+          header="Identifier Type"
+          body={dropdownTemplate3}
+          filter={selectedFilterFields.includes("identifierType")}
+          hidden={selectedHideFields?.includes("identifierType")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="businessRegistrationNumberIdentificationNumberPassportNumber"
+          header="Business registration number / Identification number / Passport number"
+          body={pTemplate4}
+          filter={selectedFilterFields.includes(
+            "businessRegistrationNumberIdentificationNumberPassportNumber",
+          )}
+          hidden={selectedHideFields?.includes(
+            "businessRegistrationNumberIdentificationNumberPassportNumber",
+          )}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersEMail"
+          header="Buyer's e-mail"
+          body={pTemplate5}
+          filter={selectedFilterFields.includes("buyersEMail")}
+          hidden={selectedHideFields?.includes("buyersEMail")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersAddressCountryName"
+          header="Buyer's address (Country name)"
+          body={dropdownTemplate6}
+          filter={selectedFilterFields.includes("buyersAddressCountryName")}
+          hidden={selectedHideFields?.includes("buyersAddressCountryName")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersAddressStateName"
+          header="Buyer's address (State name)"
+          body={dropdownTemplate7}
+          filter={selectedFilterFields.includes("buyersAddressStateName")}
+          hidden={selectedHideFields?.includes("buyersAddressStateName")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersAddressCityName"
+          header="Buyer's address (City name)"
+          body={pTemplate8}
+          filter={selectedFilterFields.includes("buyersAddressCityName")}
+          hidden={selectedHideFields?.includes("buyersAddressCityName")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersAddressPostalZone"
+          header="Buyer's address (Postal zone)"
+          body={p_numberTemplate9}
+          filter={selectedFilterFields.includes("buyersAddressPostalZone")}
+          hidden={selectedHideFields?.includes("buyersAddressPostalZone")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="theFirstBuyersContactNumber"
+          header="The first buyer's contact number"
+          body={dropdownTemplate10}
+          filter={selectedFilterFields.includes("theFirstBuyersContactNumber")}
+          hidden={selectedHideFields?.includes("theFirstBuyersContactNumber")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="buyersContactNumber"
+          header="Buyer's Contact Number"
+          body={p_numberTemplate11}
+          filter={selectedFilterFields.includes("buyersContactNumber")}
+          hidden={selectedHideFields?.includes("buyersContactNumber")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="invoiceCurrency"
+          header="Invoice Currency"
+          body={dropdownTemplate12}
+          filter={selectedFilterFields.includes("invoiceCurrency")}
+          hidden={selectedHideFields?.includes("invoiceCurrency")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="currencyExchangeRate"
+          header="Currency Exchange Rate"
+          body={p_numberTemplate13}
+          filter={selectedFilterFields.includes("currencyExchangeRate")}
+          hidden={selectedHideFields?.includes("currencyExchangeRate")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="frequencyOfBilling"
+          header="Frequency of Billing"
+          body={dropdownTemplate14}
+          filter={selectedFilterFields.includes("frequencyOfBilling")}
+          hidden={selectedHideFields?.includes("frequencyOfBilling")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="billingPeriodStartDate"
+          header="Billing Period Start Date"
+          body={p_dateTemplate15}
+          filter={selectedFilterFields.includes("billingPeriodStartDate")}
+          hidden={selectedHideFields?.includes("billingPeriodStartDate")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="billingPeriodEndDate"
+          header="Billing Period End Date"
+          body={p_dateTemplate16}
+          filter={selectedFilterFields.includes("billingPeriodEndDate")}
+          hidden={selectedHideFields?.includes("billingPeriodEndDate")}
+          sortable
+          style={{ minWidth: "8rem" }}
+        />
+        <Column
+          field="paymentMode"
+          header="Payment Mode"
+          body={dropdownTemplate17}
+          filter={selectedFilterFields.includes("paymentMode")}
+          hidden={selectedHideFields?.includes("paymentMode")}
+          style={{ minWidth: "8rem" }}
+        />
+        <Column header="Edit" body={editTemplate} />
+        <Column header="Delete" body={deleteTemplate} />
+      </DataTable>
 
       {selectedItems.length > 0 ? (
         <div
@@ -326,20 +530,28 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
         </div>
       ) : null}
 
-
-        <Dialog header="Upload Buyers Data" visible={showUpload} onHide={() => setShowUpload(false)}>
-        <UploadService 
-          user={user} 
-          serviceName="buyers"            
+      <Dialog
+        header="Upload Buyers Data"
+        visible={showUpload}
+        onHide={() => setShowUpload(false)}
+      >
+        <UploadService
+          user={user}
+          serviceName="buyers"
           onUploadComplete={() => {
             setShowUpload(false); // Close the dialog after upload
-          }}/>
+          }}
+        />
       </Dialog>
 
-      <Dialog header="Search Buyers" visible={searchDialog} onHide={() => setSearchDialog(false)}>
-      Search
-    </Dialog>
-    <Dialog
+      <Dialog
+        header="Search Buyers"
+        visible={searchDialog}
+        onHide={() => setSearchDialog(false)}
+      >
+        Search
+      </Dialog>
+      <Dialog
         header="Filter Users"
         visible={showFilter}
         onHide={() => setShowFilter(false)}
@@ -364,7 +576,7 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
             console.log(selectedFilterFields);
             onClickSaveFilteredfields(selectedFilterFields);
             setSelectedFilterFields(selectedFilterFields);
-            setShowFilter(false)
+            setShowFilter(false);
           }}
         ></Button>
       </Dialog>
@@ -394,12 +606,12 @@ const dropdownTemplate17 = (rowData, { rowIndex }) => <p >{rowData.paymentMode?.
             console.log(selectedHideFields);
             onClickSaveHiddenfields(selectedHideFields);
             setSelectedHideFields(selectedHideFields);
-            setShowColumns(false)
+            setShowColumns(false);
           }}
         ></Button>
       </Dialog>
-        </>
-    );
+    </>
+  );
 };
 
 export default BuyersDataTable;
