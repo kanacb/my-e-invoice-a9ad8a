@@ -6,7 +6,7 @@
         "default": 1000,
         "max": 100000
     },
-    "mongodb": "mongodb://localhost:27017/my-e-invoice",
+    "mongodb": "mongodb://localhost:27017/my-e-invoice-stg",
     "authentication": {
         "entity": "user",
         "service": "users",

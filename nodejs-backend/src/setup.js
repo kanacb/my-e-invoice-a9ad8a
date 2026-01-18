@@ -4,63 +4,76 @@ const codeGen = require("./utils/codegen");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 const console = require("console");
-const { decryptData } = require("./utils/encryption");
+// const { decryptData } = require("./utils/encryption");
 const userEmails = ["kana@cloudbasha.com"];
 
 // Your setup function
 module.exports = async (app) => {
-  const roles = await app.service("roles").find({});
+  try {
+    const roles = await app.service("roles").find({});
 
-  if (roles.data.length > 0) {
-    console.log("Nothing to update");
+    if (roles.data.length > 0) {
+      console.log("Nothing to update, your all set!");
+      return;
+    }
+    const files = fileSorter();
+    const fileData = files
+      .map((file) => {
+        const names = file.split(".");
+        const service = _.camelCase(names[1]);
+        return { service: service, data: getData(file) };
+      })
+      .filter((e) => e.data.length > 0);
+    const superRole = getSuperRole(fileData);
+    const superPosi = getSuperPosition(fileData);
+    const userInvites = userEmails.map((email) => {
+      return {
+        emailToInvite: email,
+        status: false,
+        sendMailCounter: 0,
+        code: codeGen(),
+        role: superRole,
+        position: superPosi,
+      };
+    });
+
+    const promises = fileData.map(async (service) => {
+      await app.service(service.service).create(service.data);
+    });
+
+    Promise.all(promises)
+      .then(async () => {
+        await app.service("userInvites").create(userInvites);
+      })
+      .catch(console.error);
     return;
+  } catch (error) {
+    console.error("Setup function error:", error);
   }
-  const files = fileSorter();
-  const fileData = files
-    .map((file) => {
-      const names = file.split(".");
-      const service = _.camelCase(names[1]);
-      return { service: service, data: getData(file) };
-    })
-    .filter((e) => e.data.length > 0);
-  const superRole = getSuperRole(fileData);
-  const superPosi = getSuperPosition(fileData);
-  const userInvites = userEmails.map((email) => {
-    return {
-      emailToInvite: email,
-      status: false,
-      sendMailCounter: 0,
-      code: codeGen(),
-      role: superRole,
-      position: superPosi,
-    };
-  });
-
-  const promises = fileData.map(async (service) => {
-    await app.service(service.service).create(service.data);
-  });
-
-  Promise.all(promises)
-    .then(async () => {
-      console.log(userInvites);
-      const results = await app.service("userInvites").create(userInvites);
-      console.log(decryptData(results.encrypted));
-    })
-    .catch(console.error);
-  return;
 };
 
 const getSuperRole = (data) => {
   const roles = _.find(data, { service: "roles" });
+  if (!roles) {
+    throw new Error("Roles data not found");
+  }
   const role = _.find(roles.data, { name: "Super" });
-  console.log(role);
+  if(!role) {
+    throw new Error("Super role not found");
+  } 
   return role._id;
 };
 
 const getSuperPosition = (data) => {
   const positions = _.find(data, { service: "positions" });
+  if (!positions) {
+    throw new Error("Positions data not found");
+  }
   const position = _.find(positions.data, { name: "Super" });
-  console.log(position);
+
+  if (!position) {
+    throw new Error("Super position not found");
+  }
   return position._id;
 };
 

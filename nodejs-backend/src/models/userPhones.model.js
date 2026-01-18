@@ -6,18 +6,12 @@ module.exports = function (app) {
     {
       userId: { type: Schema.Types.ObjectId, ref: "users" },
       countryCode: {
-        type: Number,
-        required: false,
-        min: 0,
-        max: 100000000,
+        type: Number
       },
       operatorCode: {
-        type: Number,
-        required: false,
-        min: 0,
-        max: 100000000,
+        type: Number
       },
-      number: { type: Number, required: false, min: 0, max: 100000000 },
+      number: { type: Number, unique: true },
       type: {
         type: String,
         required: false,
