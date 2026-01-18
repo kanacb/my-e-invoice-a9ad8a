@@ -1,6 +1,6 @@
-const { Superior } = require("./superior.class");
-const createModel = require("../../models/superior.model");
-const hooks = require("./superior.hooks");
+const { Superiors } = require("./superiors.class");
+const createModel = require("../../models/superiors.model");
+const hooks = require("./superiors.hooks");
 
 module.exports = function (app) {
   const mongooseClient = app.get("mongooseClient");
@@ -13,13 +13,13 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use("/superior", new Superior(options, app));
+  app.use("/superiors", new Superiors(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service("superior");
+  const service = app.service("superiors");
 
   // Get the schema of the collections
-  app.get("/superiorSchema", function (request, response) {
+  app.get("/superiorsSchema", function (request, response) {
     const schema = createModel(app).schema.tree;
     const excludes = ["__v", "id"];
     const result = Object.keys(schema).map((key) => {

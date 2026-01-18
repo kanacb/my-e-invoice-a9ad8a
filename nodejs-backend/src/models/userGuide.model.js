@@ -2,16 +2,12 @@ module.exports = function (app) {
   const modelName = "user_guide";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for userGuide model
   const schema = new Schema(
     {
       serviceName: {
         type: String,
-        required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
+        required: true
       },
       expiry: { type: Date, required: false },
       createdBy: {

@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "suppliers";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for suppliers model
   const schema = new Schema(
     {
       suppliersName: { type: Schema.Types.ObjectId, ref: "companies" },

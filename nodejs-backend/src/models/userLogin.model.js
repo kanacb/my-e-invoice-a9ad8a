@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "user_logins";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for userLogin model
   const schema = new Schema(
     {
       loginEmail: { type: String },

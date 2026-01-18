@@ -20,7 +20,6 @@ describe("'userChangePassword' service", () => {
   let results = [];
   it("registered the service", () => {
     const service = app.service("userChangePassword");
-
     assert.ok(service, "Registered the service (userChangePassword)");
   });
 

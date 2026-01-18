@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("suppliers").Model;
+const service = app.service("steps").Model;
 const patch = {
-  taxType: "Second taxType",
+  Description: "Second step Description",
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("suppliers service", () => {
+describe("steps service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (suppliers)");
+    assert.ok(service, "Registered the service (steps)");
   });
 
   it("create multi ref users", async () => {
@@ -37,50 +37,67 @@ describe("suppliers service", () => {
     );
   });
 
-  it("create suppliers data", async () => {
+  it("create steps data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of suppliers test schema model
-    testData = [
+    const testUserGuideData = [
       {
-        taxType: "VAT",
-        description: "Value Added Tax",
+        serviceName: "Initial Service Name",
+        expiry: new Date("2025-12-31"),
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
-      }
+      },
+    ];
+
+    const userGuideServiceData = await app
+      .service("userGuide")
+      .Model.create(testUserGuideData)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+
+    // create a object array of steps test schema model
+    testData = [
+      {
+        userGuideID: userGuideServiceData[0]._id,
+        Steps: "First Step",
+        Description: "First step description",
+        createdBy: standardUser._id,
+        updatedBy: standardUser._id,
+      },
     ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
-    if (!results || results.length === 0)
-      assert.fail("suppliers creation failed!");
-    assert.ok(service, `Created (${results.length} suppliers) success!`);
+    if (!results || results.length === 0) assert.fail("steps creation failed!");
+    assert.ok(service, `Created (${results.length} steps) success!`);
   });
 
-  it("verify suppliers creation", async () => {
+  it("verify steps creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch suppliers", async () => {
+  it("patch steps", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
-      } );
-      assert.ok(patched, `suppliers ${patched} patched!`);
+      });
+      assert.ok(patched, `steps ${patched} patched!`);
       assert.strictEqual(patched.type, patch.type);
     }
   });
 
-  it("remove all suppliers test data", async () => {
+  it("remove all steps test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `suppliers data ${results[i].number} removed!`);
+      assert.ok(removed, `steps data ${results[i].number} removed!`);
     }
   });
 

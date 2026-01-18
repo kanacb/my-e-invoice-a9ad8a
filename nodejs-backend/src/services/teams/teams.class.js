@@ -1,3 +1,3 @@
 const { Service } = require("feathers-mongoose");
 
-exports.Team = class Team extends Service {};
+exports.Teams = class Teams extends Service {};

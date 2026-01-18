@@ -1,6 +1,6 @@
-const { Team } = require("./team.class");
+const {Teams } = require("./teams.class");
 const createModel = require("../../models/team.model");
-const hooks = require("./team.hooks");
+const hooks = require("./teams.hooks");
 
 module.exports = function (app) {
   const options = {
@@ -11,13 +11,13 @@ module.exports = function (app) {
   };
 
   // Initialize our service with any options it requires
-  app.use("/team", new Team(options, app));
+  app.use("/teams", new Teams(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service("team");
+  const service = app.service("teams");
 
   // Get the schema of the collections
-  app.get("/teamSchema", function (request, response) {
+  app.get("/teamsSchema", function (request, response) {
     const schema = createModel(app).schema.tree;
     const result = Object.keys(schema).map((key) => {
       return {

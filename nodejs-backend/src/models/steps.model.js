@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "steps";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for steps model
   const schema = new Schema(
     {
       userGuideID: { type: Schema.Types.ObjectId, ref: "user_guide" },

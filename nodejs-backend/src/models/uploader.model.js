@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "user_login";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for uploader model
   const schema = new Schema(
     {
       serviceName: {

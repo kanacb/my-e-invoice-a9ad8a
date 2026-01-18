@@ -1,12 +1,12 @@
 module.exports = function (app) {
-  const modelName = "team";
+  const modelName = "teams";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for teams model
   const schema = new Schema(
     {
       name: { type: String, required: true },
-      users: { type: Schema.Types.ObjectId, ref: "users" },
-
+      users: { type: [Schema.Types.ObjectId], ref: "users" },
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
       updatedBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
     },

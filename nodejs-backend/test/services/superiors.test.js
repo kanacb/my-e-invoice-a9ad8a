@@ -3,24 +3,33 @@ const app = require("../../src/app");
 
 let usersRefData = [
   {
+    name: "Admin User",
+    email: "admin@example.com",
+    password: "password",
+  },
+  {
     name: "Standard User",
     email: "standard@example.com",
+    password: "password",
+  },
+  {
+    name: "Supervirsor User",
+    email: "supervisor@example.com",
     password: "password",
   },
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("suppliers").Model;
-const patch = {
-  taxType: "Second taxType",
-};
+const service = app.service("superiors").Model;
+
 let testData = [];
 let usersRefDataResults = [];
+let patch = null;
 
-describe("suppliers service", () => {
+describe("superiors service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (suppliers)");
+    assert.ok(service, "Registered the service (superiors)");
   });
 
   it("create multi ref users", async () => {
@@ -35,52 +44,55 @@ describe("suppliers service", () => {
       usersService,
       `Created (${usersRefDataResults.length} users) success!`,
     );
+    patch = {
+      subordinate: usersRefDataResults[1]._id,
+    };
   });
 
-  it("create suppliers data", async () => {
+  it("create superiors data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of suppliers test schema model
+    // create a object array of superiors test schema model
     testData = [
       {
-        taxType: "VAT",
-        description: "Value Added Tax",
+        superior: usersRefDataResults[2]._id,
+        subordinate: usersRefDataResults[0]._id,
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
-      }
+      },
     ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("suppliers creation failed!");
-    assert.ok(service, `Created (${results.length} suppliers) success!`);
+      assert.fail("superiors creation failed!");
+    assert.ok(service, `Created (${results.length} superiors) success!`);
   });
 
-  it("verify suppliers creation", async () => {
+  it("verify superiors creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch suppliers", async () => {
+  it("patch superiors", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
-      } );
-      assert.ok(patched, `suppliers ${patched} patched!`);
+      });
+      assert.ok(patched, `superiors ${patched} patched!`);
       assert.strictEqual(patched.type, patch.type);
     }
   });
 
-  it("remove all suppliers test data", async () => {
+  it("remove all superiors test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `suppliers data ${results[i].number} removed!`);
+      assert.ok(removed, `superiors data ${results[i].number} removed!`);
     }
   });
 

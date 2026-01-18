@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("suppliers").Model;
+const service = app.service("teams").Model;
 const patch = {
-  taxType: "Second taxType",
+  name: "Second Team",
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("suppliers service", () => {
+describe("teams service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (suppliers)");
+    assert.ok(service, "Registered the service (teams)");
   });
 
   it("create multi ref users", async () => {
@@ -37,16 +37,16 @@ describe("suppliers service", () => {
     );
   });
 
-  it("create suppliers data", async () => {
+  it("create teams data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of suppliers test schema model
+    // create a object array of teams test schema model
     testData = [
       {
-        taxType: "VAT",
-        description: "Value Added Tax",
+        name: "First Team",
+        users:[standardUser._id],
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
       }
@@ -56,31 +56,31 @@ describe("suppliers service", () => {
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("suppliers creation failed!");
-    assert.ok(service, `Created (${results.length} suppliers) success!`);
+      assert.fail("teams creation failed!");
+    assert.ok(service, `Created (${results.length} teams) success!`);
   });
 
-  it("verify suppliers creation", async () => {
+  it("verify teams creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch suppliers", async () => {
+  it("patch teams", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       } );
-      assert.ok(patched, `suppliers ${patched} patched!`);
+      assert.ok(patched, `teams ${patched} patched!`);
       assert.strictEqual(patched.type, patch.type);
     }
   });
 
-  it("remove all suppliers test data", async () => {
+  it("remove all teams test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `suppliers data ${results[i].number} removed!`);
+      assert.ok(removed, `teams data ${results[i].number} removed!`);
     }
   });
 

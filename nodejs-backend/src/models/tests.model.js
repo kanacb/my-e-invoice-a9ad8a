@@ -2,42 +2,26 @@ module.exports = function (app) {
   const modelName = "tests";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for tests model
   const schema = new Schema(
     {
       stack: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: 3,
-        maxLength: 1000000,
-        index: true,
-        trim: true,
+        maxLength: 1000,
+        index: true
       },
       service: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: 3,
-        maxLength: 100000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
-      passed: { type: Number, required: false, min: 0, max: 100000000 },
-      failed: { type: Number, required: false, min: 0, max: 100000000 },
+      passed: { type: Number, required: false, min: 0, max: 10000 },
+      failed: { type: Number, required: false, min: 0, max: 10000 },
       notes: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: 3,
-        maxLength: 100000000,
-        index: true,
-        trim: true,
+        maxLength: 1000,
+        index: true
       },
 
       createdBy: {

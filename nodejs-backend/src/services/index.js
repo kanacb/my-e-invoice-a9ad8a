@@ -14,7 +14,7 @@ const departmentAdmin = require("./departmentAdmin/departmentAdmin.service.js");
 const departmentHOD = require("./departmentHOD/departmentHOD.service.js");
 const departmentHOS = require("./departmentHOS/departmentHOS.service.js");
 const employees = require("./employees/employees.service.js");
-const superior = require("./superior/superior.service.js");
+const superior = require("./superiors/superiors.service.js");
 const permissionServices = require("./permissionServices/permissionServices.service.js");
 const permissionFields = require("./permissionFields/permissionFields.service.js");
 const userChangePassword = require("./userChangePassword/userChangePassword.service.js");
@@ -82,7 +82,7 @@ const phoneNumberPrefix = require("./phoneNumberPrefix/phoneNumberPrefix.service
 const stateCodes = require("./stateCodes/stateCodes.service.js");
 const countryCodes = require("./countryCodes/countryCodes.service.js");
 const taxTypes = require("./taxTypes/taxTypes.service.js");
-const team = require("./team/team.service.js");
+const team = require("./teams/teams.service.js");
 // ~cb-add-require-service-name~
 
 // eslint-disable-next-line no-unused-vars

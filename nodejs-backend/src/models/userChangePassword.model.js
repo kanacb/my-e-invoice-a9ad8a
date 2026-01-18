@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "user_change_password";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for user_change_password model
   const schema = new Schema(
     {
       userEmail: {

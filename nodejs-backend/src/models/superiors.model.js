@@ -1,21 +1,20 @@
 module.exports = function (app) {
-  const modelName = "superior";
+  const modelName = "superiors";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for superiors model
   const schema = new Schema(
     {
-      superior: { type: Number, required: false, min: 0, max: 10000000 },
-      subordinate: {
-        type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        maxLength: null,
-        index: false,
-        trim: false,
+      superior: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true,
       },
-
+      subordinate: {
+        type: Schema.Types.ObjectId,
+        ref: "users",
+        required: true,
+      },
       createdBy: {
         type: Schema.Types.ObjectId,
         ref: "users",

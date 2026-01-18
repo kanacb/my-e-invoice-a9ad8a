@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "user_invites";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for userInvites model
   const schema = new Schema(
     {
       emailToInvite: {

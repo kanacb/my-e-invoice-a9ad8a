@@ -17,7 +17,6 @@ const patch = {
 describe("'userInvites' service", () => {
   let results = [];
   it("registered the service", () => {
-    const service = app.service("userInvites");
     assert.ok(service, "Registered the service (userInvites)");
   });
 

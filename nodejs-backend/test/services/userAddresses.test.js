@@ -25,7 +25,6 @@ const patch = {
 describe("userAddresses service", () => {
   let results = [];
   it("registered the service", () => {
-    const service = app.service("userAddresses");
     assert.ok(service, "Registered the service (userAddresses)");
   });
 
@@ -91,7 +90,7 @@ describe("userAddresses service", () => {
     }
   });
 
-  it("remove all userAddress test data", async () => {
+  it("remove all userAddresses test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
       assert.ok(removed, `userAddresses data ${results[i].number} removed!`);

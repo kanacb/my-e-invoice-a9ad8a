@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "users";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for users model
   const schema = new Schema(
     {
       name: {

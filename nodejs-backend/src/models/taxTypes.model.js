@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "tax_types";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for taxTypes model
   const schema = new Schema(
     {
       taxType: {
@@ -11,7 +12,13 @@ module.exports = function (app) {
         index: true,
         trim: true,
       },
-
+      description: {
+        type: String,
+        minLength: 2,
+        maxLength: 1000,
+        index: true,
+        trim: true,
+      },
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
       updatedBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
     },

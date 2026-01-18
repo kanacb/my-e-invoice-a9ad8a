@@ -22,7 +22,6 @@ let usersRefDataResults = [];
 describe("userPhones service", () => {
   let results = [];
   it("registered the service", () => {
-    const service = app.service("userPhones");
     assert.ok(service, "Registered the service (userPhones)");
   });
 
