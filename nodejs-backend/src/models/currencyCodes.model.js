@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "currency_codes";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "currencyCodes" model
   const schema = new Schema(
     {
       currencyCode: {

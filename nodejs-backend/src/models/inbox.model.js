@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "inbox";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "inbox" model
   const schema = new Schema(
     {
       from: { type: Schema.Types.ObjectId, ref: "users", required: true },

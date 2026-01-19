@@ -2,43 +2,24 @@ module.exports = function (app) {
   const modelName = "employees";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "employees" model
   const schema = new Schema(
     {
       empNo: {
         type: String,
-        required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
+        required: true
       },
       name: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
       },
       fullname: {
         type: String,
-        required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
+        required: true
       },
       userEmail: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
       },
       company: { type: Schema.Types.ObjectId, ref: "companies" },
       department: { type: Schema.Types.ObjectId, ref: "departments" },

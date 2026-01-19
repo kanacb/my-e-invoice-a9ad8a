@@ -23,9 +23,6 @@ module.exports = function (app) {
       },
       newCompanyNumber: {
         type: Number,
-
-        min: 0,
-        max: 100000000,
       },
       DateIncorporated: { type: Date, required: false },
       isdefault: { type: Boolean, default: false },

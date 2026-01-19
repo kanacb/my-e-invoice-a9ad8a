@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "company_phones";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "companyPhones" model
   const schema = new Schema(
     {
       companyId: {
@@ -11,20 +12,13 @@ module.exports = function (app) {
       },
       countryCode: {
         type: Number,
-
-        min: 0,
-        max: 100000000,
       },
       operatorCode: {
         type: Number,
-
-        min: 0,
-        max: 100000000,
       },
-      number: { type: Number, min: 0, max: 100000000 },
+      number: { type: Number },
       type: {
         type: String,
-
         enum: ["Land line", "Mobile", "Fax"],
       },
       isDefault: { type: Boolean, default: false },

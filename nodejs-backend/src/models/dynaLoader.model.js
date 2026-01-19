@@ -2,43 +2,22 @@ module.exports = function (app) {
   const modelName = "dyna_loader";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "dynaLoader" model
   const schema = new Schema(
     {
       from: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: null,
         maxLength: 50,
-        index: false,
-        trim: false,
       },
       to2: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: null,
         maxLength: 50,
-        index: false,
-        trim: false,
         default: "",
       },
       name: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: null,
-        maxLength: null,
-        index: false,
-        trim: false,
       },
-
       createdBy: {
         type: Schema.Types.ObjectId,
         ref: "users",

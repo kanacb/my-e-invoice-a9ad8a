@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "department_h_o_d";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "departmentHOD" model
   const schema = new Schema(
     {
       departmentId: {

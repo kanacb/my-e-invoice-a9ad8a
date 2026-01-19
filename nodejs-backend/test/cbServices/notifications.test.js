@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("phoneNumberPrefix").Model;
+const service = app.service("notifications").Model;
 const patch = {
-  bio: "phoneNumberPrefix bio updated",
+  content: "Notifications updated",
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("phoneNumberPrefix service", () => {
+describe("notifications service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (phoneNumberPrefix)");
+    assert.ok(service, "Registered the service (notifications)");
   });
 
   it("create multi ref users", async () => {
@@ -37,15 +37,19 @@ describe("phoneNumberPrefix service", () => {
     );
   });
 
-  it("create phoneNumberPrefix data", async () => {
+  it("create notifications data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of phoneNumberPrefix test schema model
+    // create a object array of notifications test schema model
     testData = [
       {
-        phoneNumberPrefix: "+1",
+        toUser: "Admin",
+        content: "Administrator role with full permissions",
+        path: true,
+        read: false,
+        sent: Date.now(),
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
       },
@@ -55,37 +59,31 @@ describe("phoneNumberPrefix service", () => {
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("phoneNumberPrefix creation failed!");
-    assert.ok(
-      service,
-      `Created (${results.length} phoneNumberPrefix) success!`,
-    );
+      assert.fail("notifications creation failed!");
+    assert.ok(service, `Created (${results.length} notifications) success!`);
   });
 
-  it("verify phoneNumberPrefix creation", async () => {
+  it("verify notifications creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch phoneNumberPrefix", async () => {
+  it("patch notifications", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       });
-      assert.ok(patched, `phoneNumberPrefix ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      assert.ok(patched, `notifications ${patched} patched!`);
+      assert.strictEqual(patched.content, patch.content);
     }
   });
 
-  it("remove all phoneNumberPrefix test data", async () => {
+  it("remove all notifications test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(
-        removed,
-        `phoneNumberPrefix data ${results[i].number} removed!`,
-      );
+      assert.ok(removed, `notifications data ${results[i].number} removed!`);
     }
   });
 

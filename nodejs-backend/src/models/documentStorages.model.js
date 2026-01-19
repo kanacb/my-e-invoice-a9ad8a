@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "document_storages";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "documentStorages" model
   const schema = new Schema(
     {
       name: {

@@ -73,7 +73,7 @@ describe("taxTypes service", () => {
         new: true,
       } );
       assert.ok(patched, `taxTypes ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      assert.strictEqual(patched.taxType, patch.taxType);
     }
   });
 

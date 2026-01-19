@@ -15,11 +15,10 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("employees").Model;
+const service = app.service("profiles").Model;
 const patch = {
-  empCode: "E1001 updated",
+  description: "Roles updated",
 };
-
 let testData = [];
 let usersRefDataResults = [];
 let companyResults = [];
@@ -29,10 +28,10 @@ let roleResults = [];
 let positionResults = [];
 let branchResults = [];
 
-describe("employees service", () => {
+describe("profiles service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (employees)");
+    assert.ok(service, "Registered the service (profiles)");
   });
 
   it("create multi ref users", async () => {
@@ -49,7 +48,7 @@ describe("employees service", () => {
     );
   });
 
-  it("create employees data", async () => {
+  it("create profiles data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
@@ -125,6 +124,7 @@ describe("employees service", () => {
     roleResults = await app
       .service("roles")
       .Model.create(roleTestData)
+
       .catch((err) => {
         console.error(err);
         throw err;
@@ -168,9 +168,8 @@ describe("employees service", () => {
         throw err;
       });
 
-    // create a profile test schema model
-    const profilesService = app.service("profiles").Model;
-    const profilesTestData = [
+    // create a object array of profiles test schema model
+    testData = [
       {
         name: "John Doe",
         userId: usersRefDataResults[0]._id,
@@ -190,100 +189,62 @@ describe("employees service", () => {
         updatedBy: standardUser._id,
       },
     ];
-    const profilesResults = await profilesService
-      .create(profilesTestData)
-      .catch((err) => {
-        console.error(err);
-        throw err;
-      });
-    if (profilesResults.length === 0) assert.fail("Profile creation failed!");
-    assert.ok(
-      profilesService,
-      `Created (${profilesResults.length} profiles) success!`,
-    );
-
-    // create a object array of employees test schema model
-    testData = [
-      {
-        empNo: "JD001",
-        name: "John Doe",
-        empCode: "E1001",
-        empGroup: "Group A",
-        resigned: "No",
-        fullname: "Johnathan Doe",
-        userEmail: "jonathan@example.com",
-        company: companyResults[0]._id,
-        branch: branchResults[0]._id,
-        department: departmentResults[0]._id,
-        section: sectionResults[0]._id,
-        supervisor: null,
-        position: positionResults[0]._id,
-        dateJoined: new Date("2021-06-15"),
-        dateTerminated: null,
-        createdBy: standardUser._id,
-        updatedBy: standardUser._id,
-      },
-    ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("employees creation failed!");
-    assert.ok(service, `Created (${results.length} employees) success!`);
+      assert.fail("profiles creation failed!");
+    assert.ok(service, `Created (${results.length} profiles) success!`);
   });
 
-  it("verify employees creation", async () => {
+  it("verify profiles creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch employees", async () => {
+  it("patch profiles", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       });
-      assert.ok(patched, `employees ${patched} patched!`);
-      assert.strictEqual(patched.empCode, patch.empCode);
+      assert.ok(patched, `profiles ${patched} patched!`);
+      assert.strictEqual(patched.type, patch.type);
     }
   });
 
-  it("remove all employees test data", async () => {
+  it("remove all profiles test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `employees data ${results[i].number} removed!`);
+      assert.ok(removed, `profiles data ${results[i].number} removed!`);
     }
   });
 
   it("remove all user test data", async () => {
-    for (let i = 0; i < usersRefDataResults.length; i++) {
-      const removed = await usersService.findByIdAndDelete(
-        usersRefDataResults[i]._id,
-      );
-      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
-    }
-
     await Promise.all([
+      ...usersRefDataResults.map((item) =>
+        usersService.findByIdAndDelete(item._id),
+      ),
       ...companyResults.map((item) =>
-        app.service("companies").Model.findByIdAndDelete(item._id),   
+        app.service("companies").Model.findByIdAndDelete(item._id),
       ),
       ...departmentResults.map((item) =>
-        app.service("departments").Model.findByIdAndDelete(item._id),
+        app.service("countryCodes").Model.findByIdAndDelete(item._id),
       ),
       ...sectionResults.map((item) =>
-        app.service("sections").Model.findByIdAndDelete(item._id),
+        app.service("stateCodes").Model.findByIdAndDelete(item._id),
       ),
       ...roleResults.map((item) =>
-        app.service("roles").Model.findByIdAndDelete(item._id),
-      ),  
+        app.service("identifyType").Model.findByIdAndDelete(item._id),
+      ),
       ...positionResults.map((item) =>
-        app.service("positions").Model.findByIdAndDelete(item._id),
-      ),  
+        app.service("stateCodes").Model.findByIdAndDelete(item._id),
+      ),
       ...branchResults.map((item) =>
-        app.service("branches").Model.findByIdAndDelete(item._id),
-      ),  
+        app.service("identifyType").Model.findByIdAndDelete(item._id),
+      ),
     ]);
   });
 });

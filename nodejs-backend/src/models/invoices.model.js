@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "invoices";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "invoices" model
   const schema = new Schema(
     {
       invoiceType: {
@@ -26,7 +27,6 @@ module.exports = function (app) {
       countryOfOrigin: { type: Schema.Types.ObjectId, ref: "country_codes" },
       totalExcludingTax: {
         type: Number,
-
         min: 0,
         max: 1000000,
       },
@@ -55,13 +55,11 @@ module.exports = function (app) {
       taxType1: { type: Schema.Types.ObjectId, ref: "tax_types" },
       totalTaxableAmountPerTaxType: {
         type: Number,
-
         min: 0,
         max: 1000000,
       },
       totalTaxAmountPerTaxType: {
         type: Number,
-
         min: 0,
         max: 1000000,
       },
@@ -102,7 +100,7 @@ module.exports = function (app) {
         trim: true,
       },
       consolidated: { type: Boolean, required: false },
-      team: { type: Schema.Types.ObjectId, ref: "team" },
+      team: { type: Schema.Types.ObjectId, ref: "teams" },
       buyer: { type: Schema.Types.ObjectId, ref: "companies" },
       supplier: { type: Schema.Types.ObjectId, ref: "companies" },
 

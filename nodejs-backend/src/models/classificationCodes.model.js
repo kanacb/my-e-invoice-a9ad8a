@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "classification_codes";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "classificationCodes" model
   const schema = new Schema(
     {
       classificationCode: {

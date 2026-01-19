@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "buyers";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "buyers" model
   const schema = new Schema(
     {
       buyersName: {
@@ -19,7 +20,6 @@ module.exports = function (app) {
       },
       buyersSstRegistrationNumber: {
         type: String,
-
         minLength: 2,
         maxLength: 1000,
         index: true,
@@ -56,27 +56,26 @@ module.exports = function (app) {
         trim: true,
       },
       buyersAddressPostalZone: {
-        type: Number,
-
-        min: 0,
-        max: 1000000,
+        type: String,
+        minLength: 2,
+        maxLength: 1000,
+        index: true,
+        trim: true,
       },
       theFirstBuyersContactNumber: {
         type: Schema.Types.ObjectId,
         ref: "phone_number_prefix",
       },
       buyersContactNumber: {
-        type: Number,
-
-        min: 0,
-        max: 1000000,
+        type: String,
+        minLength: 2,
+        maxLength: 1000,
+        index: true,
+        trim: true,
       },
       invoiceCurrency: { type: Schema.Types.ObjectId, ref: "currency_codes" },
       currencyExchangeRate: {
         type: Number,
-
-        min: 0,
-        max: 1000000,
       },
       frequencyOfBilling: {
         type: Schema.Types.ObjectId,
@@ -85,9 +84,8 @@ module.exports = function (app) {
       billingPeriodStartDate: { type: Date, required: false },
       billingPeriodEndDate: { type: Date, required: false },
       paymentMode: { type: Schema.Types.ObjectId, ref: "payment_modes" },
-      team: { type: Schema.Types.ObjectId, ref: "team" },
+      team: { type: Schema.Types.ObjectId, ref: "teams" },
       invoiceId: { type: Schema.Types.ObjectId, ref: "invoices" },
-
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
       updatedBy: { type: Schema.Types.ObjectId, ref: "users", required: true },
     },

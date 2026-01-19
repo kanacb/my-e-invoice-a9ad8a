@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("tests").Model;
+const service = app.service("mails").Model;
 const patch = {
-  stack: "Jhipster",
+  mailType: "MIME",
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("tests service", () => {
+describe("mails service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (tests)");
+    assert.ok(service, "Registered the service (mails)");
   });
 
   it("create multi ref users", async () => {
@@ -37,19 +37,18 @@ describe("tests service", () => {
     );
   });
 
-  it("create tests data", async () => {
+  it("create mails data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of tests test schema model
+    // create a object array of mails test schema model
     testData = [
       {
-        stack: "MERN",
-        service: "Authentication Service",
-        passed: 150,  
-        failed: 5,
-        notes: "All critical tests passed",
+        sentDateTime: Date.now(),
+        sentStatus: false,
+        mailType: "Administrator role with full permissions",
+        toHistory: {data: "Administrator role with full permissions"},
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
       }
@@ -59,31 +58,31 @@ describe("tests service", () => {
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("tests creation failed!");
-    assert.ok(service, `Created (${results.length} tests) success!`);
+      assert.fail("mails creation failed!");
+    assert.ok(service, `Created (${results.length} mails) success!`);
   });
 
-  it("verify tests creation", async () => {
+  it("verify mails creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch tests", async () => {
+  it("patch mails", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       } );
-      assert.ok(patched, `tests ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      assert.ok(patched, `mails ${patched} patched!`);
+      assert.strictEqual(patched.mailType, patch.mailType);
     }
   });
 
-  it("remove all tests test data", async () => {
+  it("remove all mails test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `tests data ${results[i].number} removed!`);
+      assert.ok(removed, `mails data ${results[i].number} removed!`);
     }
   });
 

@@ -15,11 +15,10 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("employees").Model;
+const service = app.service("permissionFields").Model;
 const patch = {
-  empCode: "E1001 updated",
+  fieldName: "fieldName updated",
 };
-
 let testData = [];
 let usersRefDataResults = [];
 let companyResults = [];
@@ -28,11 +27,13 @@ let sectionResults = [];
 let roleResults = [];
 let positionResults = [];
 let branchResults = [];
+let employeesResults = [];
+let permissionServicesResults = [];
 
-describe("employees service", () => {
+describe("permissionFields service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (employees)");
+    assert.ok(service, "Registered the service (permissionFields)");
   });
 
   it("create multi ref users", async () => {
@@ -49,7 +50,7 @@ describe("employees service", () => {
     );
   });
 
-  it("create employees data", async () => {
+  it("create permissionFields data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
@@ -202,8 +203,9 @@ describe("employees service", () => {
       `Created (${profilesResults.length} profiles) success!`,
     );
 
-    // create a object array of employees test schema model
-    testData = [
+    //create emplyoyee test data
+    const employeesService = app.service("employees").Model;
+    const employeesTestData = [
       {
         empNo: "JD001",
         name: "John Doe",
@@ -224,50 +226,92 @@ describe("employees service", () => {
         updatedBy: standardUser._id,
       },
     ];
+    employeesResults = await employeesService
+      .create(employeesTestData)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+    if (employeesResults.length === 0) assert.fail("Employee creation failed!");
+    assert.ok(
+      employeesService,
+      `Created (${employeesResults.length} employees) success!`,
+    );
+
+    // create a permissionServices test schema model
+    const permissionServicesService = app.service("permissionServices").Model;
+    const permissionServicesTestData = [
+      {
+        service: "Products",
+        description: "Permission for Products Service",
+        company: companyResults[0]._id,
+        branch: branchResults[0]._id,
+        isDefault: true,
+        createdBy: standardUser._id,
+        updatedBy: standardUser._id,
+      },
+    ];
+
+    permissionServicesResults = await permissionServicesService
+      .create(permissionServicesTestData)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+    if (permissionServicesResults.length === 0)
+      assert.fail("Permission Service creation failed!");
+    assert.ok(
+      permissionServicesService,
+      `Created (${permissionServicesResults.length} permission services) success!`,
+    );
+
+    // create a object array of permissionFields test schema model
+    testData = [
+      {
+        servicePermissionId: permissionServicesResults[0]._id,
+        fieldName: "productName",
+        onCreate: true,
+        onUpdate: true,
+        onDetail: true,
+        onTable: true,
+        createdBy: standardUser._id,
+        updatedBy: standardUser._id,
+      },
+    ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("employees creation failed!");
-    assert.ok(service, `Created (${results.length} employees) success!`);
+      assert.fail("permissionFields creation failed!");
+    assert.ok(service, `Created (${results.length} permissionFields) success!`);
   });
 
-  it("verify employees creation", async () => {
+  it("verify permissionFields creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch employees", async () => {
+  it("patch permissionFields", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       });
-      assert.ok(patched, `employees ${patched} patched!`);
-      assert.strictEqual(patched.empCode, patch.empCode);
+      assert.ok(patched, `permissionFields ${patched} patched!`);
+      assert.strictEqual(patched.fieldName, patch.fieldName);
     }
   });
 
-  it("remove all employees test data", async () => {
+  it("remove all permissionFields test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `employees data ${results[i].number} removed!`);
+      assert.ok(removed, `permissionFields data ${results[i].number} removed!`);
     }
-  });
-
-  it("remove all user test data", async () => {
-    for (let i = 0; i < usersRefDataResults.length; i++) {
-      const removed = await usersService.findByIdAndDelete(
-        usersRefDataResults[i]._id,
-      );
-      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
-    }
-
     await Promise.all([
       ...companyResults.map((item) =>
-        app.service("companies").Model.findByIdAndDelete(item._id),   
+        app.service("companies").Model.findByIdAndDelete(item._id),
       ),
       ...departmentResults.map((item) =>
         app.service("departments").Model.findByIdAndDelete(item._id),
@@ -277,13 +321,28 @@ describe("employees service", () => {
       ),
       ...roleResults.map((item) =>
         app.service("roles").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...positionResults.map((item) =>
         app.service("positions").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...branchResults.map((item) =>
         app.service("branches").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
+      ...employeesResults.map((item) =>
+        app.service("employees").Model.findByIdAndDelete(item._id),
+      ),
+      ...permissionServicesResults.map((item) =>
+        app.service("permissionServices").Model.findByIdAndDelete(item._id),
+      ),
     ]);
+  });
+
+  it("remove all user test data", async () => {
+    for (let i = 0; i < usersRefDataResults.length; i++) {
+      const removed = await usersService.findByIdAndDelete(
+        usersRefDataResults[i]._id,
+      );
+      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
+    }
   });
 });

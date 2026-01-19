@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "mail_ques";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "mailQues" model
   const schema = new Schema(
     {
       name: { type: String, required: true },

@@ -121,13 +121,10 @@ describe("sections service", () => {
   });
 
   it("remove all user test data", async () => {
-    for (let i = 0; i < usersRefDataResults.length; i++) {
-      const removed = await usersService.findByIdAndDelete(
-        usersRefDataResults[i]._id,
-      );
-      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
-    }
     await Promise.all([
+      ...usersRefDataResults.map((item) =>
+        usersService.findByIdAndDelete(item._id),
+      ),
       ...departmentResults.map((item) =>
         app.service("departments").Model.findByIdAndDelete(item._id),
       ),

@@ -8,16 +8,16 @@ let usersRefData = [
     password: "password",
   },
   {
-    name: "Manager User",
-    email: "manager@example.com",
+    name: "Supervisor User",
+    email: "supervisor@example.com",
     password: "password",
   },
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("profiles").Model;
+const service = app.service("permissionServices").Model;
 const patch = {
-  description: "Roles updated",
+  service: "Products updated",
 };
 let testData = [];
 let usersRefDataResults = [];
@@ -27,11 +27,12 @@ let sectionResults = [];
 let roleResults = [];
 let positionResults = [];
 let branchResults = [];
+let employeesResults = [];
 
-describe("profiles service", () => {
+describe("permissionServices service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (profiles)");
+    assert.ok(service, "Registered the service (permissionServices)");
   });
 
   it("create multi ref users", async () => {
@@ -48,7 +49,7 @@ describe("profiles service", () => {
     );
   });
 
-  it("create profiles data", async () => {
+  it("create permissionServices data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
@@ -168,8 +169,9 @@ describe("profiles service", () => {
         throw err;
       });
 
-    // create a object array of profiles test schema model
-    testData = [
+    // create a profile test schema model
+    const profilesService = app.service("profiles").Model;
+    const profilesTestData = [
       {
         name: "John Doe",
         userId: usersRefDataResults[0]._id,
@@ -189,36 +191,106 @@ describe("profiles service", () => {
         updatedBy: standardUser._id,
       },
     ];
+    const profilesResults = await profilesService
+      .create(profilesTestData)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+    if (profilesResults.length === 0) assert.fail("Profile creation failed!");
+    assert.ok(
+      profilesService,
+      `Created (${profilesResults.length} profiles) success!`,
+    );
+
+    //create emplyoyee test data
+    const employeesService = app.service("employees").Model;
+    const employeesTestData = [
+      {
+        empNo: "JD001",
+        name: "John Doe",
+        empCode: "E1001",
+        empGroup: "Group A",
+        resigned: "No",
+        fullname: "Johnathan Doe",
+        userEmail: "jonathan@example.com",
+        company: companyResults[0]._id,
+        branch: branchResults[0]._id,
+        department: departmentResults[0]._id,
+        section: sectionResults[0]._id,
+        supervisor: null,
+        position: positionResults[0]._id,
+        dateJoined: new Date("2021-06-15"),
+        dateTerminated: null,
+        createdBy: standardUser._id,
+        updatedBy: standardUser._id,
+      },
+    ];
+    employeesResults = await employeesService
+      .create(employeesTestData)
+      .catch((err) => {
+        console.error(err);
+        throw err;
+      });
+    if (employeesResults.length === 0) assert.fail("Employee creation failed!");
+    assert.ok(
+      employeesService,
+      `Created (${employeesResults.length} employees) success!`,
+    );
+
+    // create a object array of permissionServices test schema model
+    testData = [
+      {
+        service: "Products",
+        create: true,
+        read: "all",
+        update: "own",
+        delete: "own",
+        profile: profilesResults[0]._id,
+        roleId: roleResults[0]._id,
+        positionId: positionResults[0]._id,
+        employeeId: employeesResults[0]._id,
+        userId: standardUser._id,
+        createdBy: standardUser._id,
+        updatedBy: standardUser._id,
+      },
+    ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("profiles creation failed!");
-    assert.ok(service, `Created (${results.length} profiles) success!`);
+      assert.fail("permissionServices creation failed!");
+    assert.ok(
+      service,
+      `Created (${results.length} permissionServices) success!`,
+    );
   });
 
-  it("verify profiles creation", async () => {
+  it("verify permissionServices creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch profiles", async () => {
+  it("patch permissionServices", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       });
-      assert.ok(patched, `profiles ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      assert.ok(patched, `permissionServices ${patched} patched!`);
+      assert.strictEqual(patched.service, patch.service);
     }
   });
 
-  it("remove all profiles test data", async () => {
+  it("remove all permissionServices test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `profiles data ${results[i].number} removed!`);
+      assert.ok(
+        removed,
+        `permissionServices data ${results[i].number} removed!`,
+      );
     }
   });
 
@@ -229,24 +301,28 @@ describe("profiles service", () => {
       );
       assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
     }
+
     await Promise.all([
       ...companyResults.map((item) =>
         app.service("companies").Model.findByIdAndDelete(item._id),
       ),
       ...departmentResults.map((item) =>
-        app.service("countryCodes").Model.findByIdAndDelete(item._id),
+        app.service("departments").Model.findByIdAndDelete(item._id),
       ),
       ...sectionResults.map((item) =>
-        app.service("stateCodes").Model.findByIdAndDelete(item._id),
+        app.service("sections").Model.findByIdAndDelete(item._id),
       ),
       ...roleResults.map((item) =>
-        app.service("identifyType").Model.findByIdAndDelete(item._id),
+        app.service("roles").Model.findByIdAndDelete(item._id),
       ),
       ...positionResults.map((item) =>
-        app.service("stateCodes").Model.findByIdAndDelete(item._id),
+        app.service("positions").Model.findByIdAndDelete(item._id),
       ),
       ...branchResults.map((item) =>
-        app.service("identifyType").Model.findByIdAndDelete(item._id),
+        app.service("branches").Model.findByIdAndDelete(item._id),
+      ),
+      ...employeesResults.map((item) =>
+        app.service("employees").Model.findByIdAndDelete(item._id),
       ),
     ]);
   });

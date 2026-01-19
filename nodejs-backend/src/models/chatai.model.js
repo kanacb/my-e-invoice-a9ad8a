@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "chatai";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "chatai" model
   const schema = new Schema(
     {
       name: {

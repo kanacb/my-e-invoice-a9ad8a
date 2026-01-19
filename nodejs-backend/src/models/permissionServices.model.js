@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "permission_services";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "permissionServices" model
   const schema = new Schema(
     {
       service: {

@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("roles").Model;
+const service = app.service("mailWH").Model;
 const patch = {
-  description: "Roles updated",
+  data: { data: "Administrator role with full permissions updated" },
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("roles service", () => {
+describe("mailWH service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (roles)");
+    assert.ok(service, "Registered the service (mailWH)");
   });
 
   it("create multi ref users", async () => {
@@ -37,51 +37,50 @@ describe("roles service", () => {
     );
   });
 
-  it("create roles data", async () => {
+  it("create mailWH data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of roles test schema model
+    // create a object array of mailWH test schema model
     testData = [
       {
-        name: "Admin",
-        description: "Administrator role with full permissions",
-        isDefault: true,
+        date: Date.now(),
+        data: { data: "Administrator role with full permissions" },
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
-      }
+      },
     ];
     results = await service.create(testData).catch((err) => {
       console.error(err);
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("roles creation failed!");
-    assert.ok(service, `Created (${results.length} roles) success!`);
+      assert.fail("mailWH creation failed!");
+    assert.ok(service, `Created (${results.length} mailWH) success!`);
   });
 
-  it("verify roles creation", async () => {
+  it("verify mailWH creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch roles", async () => {
+  it("patch mailWH", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
-      } );
-      assert.ok(patched, `roles ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      });
+      assert.ok(patched, `mailWH ${patched} patched!`);
+      assert.strictEqual(patched.data.data, patch.data.data);
     }
   });
 
-  it("remove all roles test data", async () => {
+  it("remove all mailWH test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `roles data ${results[i].number} removed!`);
+      assert.ok(removed, `mailWH data ${results[i].number} removed!`);
     }
   });
 

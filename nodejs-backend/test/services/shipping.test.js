@@ -12,7 +12,7 @@ let usersRefData = [
 const usersService = app.service("users").Model;
 const service = app.service("shipping").Model;
 const patch = {
-  taxType: "Second taxType",
+  shippingRecipientsAddressCityName: "Second City",
 };
 let testData = [];
 let usersRefDataResults = [];
@@ -148,7 +148,7 @@ describe("shipping service", () => {
         new: true,
       });
       assert.ok(patched, `shipping ${patched} patched!`);
-      assert.strictEqual(patched.type, patch.type);
+      assert.strictEqual(patched.shippingRecipientsAddressCityName, patch.shippingRecipientsAddressCityName);
     }
   });
 

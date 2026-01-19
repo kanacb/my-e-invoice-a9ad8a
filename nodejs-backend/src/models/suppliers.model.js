@@ -84,10 +84,7 @@ module.exports = function (app) {
         trim: true,
       },
       suppliersBankAccountNumber: {
-        type: Number,
-
-        min: 0,
-        max: 1000000,
+        type: Number
       },
       paymentTerms: {
         type: String,
@@ -105,7 +102,7 @@ module.exports = function (app) {
         index: true,
         trim: true,
       },
-      team: { type: Schema.Types.ObjectId, ref: "team" },
+      team: { type: Schema.Types.ObjectId, ref: "teams" },
       invoiceId: { type: Schema.Types.ObjectId, ref: "invoices" },
 
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },

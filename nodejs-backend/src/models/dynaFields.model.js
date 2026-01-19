@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "dyna_fields";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "dynaFields" model
   const schema = new Schema(
     {
       dynaLoader: {
@@ -12,67 +13,39 @@ module.exports = function (app) {
       from: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 2,
         maxLength: 150,
-        index: true,
         trim: true,
       },
       fromType: { type: Schema.Types.Mixed, required: true },
       to2: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 2,
         maxLength: 150,
-        index: true,
         trim: true,
       },
       toType: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 2,
         maxLength: 150,
-        index: true,
         trim: true,
         default: "",
       },
       fromService: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 0,
         maxLength: 150,
-        index: true,
         trim: true,
       },
       toService: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 0,
         maxLength: 150,
-        index: true,
         trim: true,
         default: "",
       },
       toRefService: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 0,
         maxLength: 150,
         index: true,
@@ -80,13 +53,8 @@ module.exports = function (app) {
       },
       identifierFieldName: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 0,
         maxLength: 150,
-        index: true,
         trim: true,
       },
       duplicates: { type: Boolean, required: true, default: false },

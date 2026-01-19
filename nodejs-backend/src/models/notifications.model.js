@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "notifications";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "notifications" model
   const schema = new Schema(
     {
       toUser: { type: String, required: true, unique: false },

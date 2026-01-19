@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "measurements";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "measurements" model
   const schema = new Schema(
     {
       measurement: {

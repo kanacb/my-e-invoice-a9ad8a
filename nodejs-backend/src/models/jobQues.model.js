@@ -3,43 +3,23 @@ module.exports = function (app) {
   const modelName = "job_ques";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "job_ques" model
   const schema = new Schema(
     {
       name: {
         type: String,
         required: true,
-        index: false,
-        trim: false,
+        index: true,
+        trim: true,
       },
       type: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        maxLength: null,
-        index: false,
-        trim: false,
       },
       fromService: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        maxLength: null,
-        index: false,
-        trim: false,
       },
       toService: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        maxLength: null,
-        index: false,
-        trim: false,
       },
       start: { type: Date, required: false },
       end: { type: Date, required: false },

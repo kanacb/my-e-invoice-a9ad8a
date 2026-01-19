@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "e_invoice_types";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "eInvoiceTypes" model
   const schema = new Schema(
     {
       eInvoiceTypes: {

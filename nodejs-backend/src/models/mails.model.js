@@ -2,16 +2,13 @@ module.exports = function (app) {
   const modelName = "mails";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "mails" model
   const schema = new Schema(
     {
       sentDateTime: { type: Date, required: false },
       sentStatus: { type: Boolean, required: false },
       mailType: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 2,
         maxLength: 150,
         index: true,

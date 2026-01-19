@@ -1,5 +1,5 @@
 const { Teams } = require("./teams.class");
-const createModel = require("../../models/team.model");
+const createModel = require("../../models/teams.model");
 const hooks = require("./teams.hooks");
 
 module.exports = function (app) {

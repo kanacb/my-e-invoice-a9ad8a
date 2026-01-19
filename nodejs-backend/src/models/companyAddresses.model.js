@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "company_addresses";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // Define the schema for the "companyAddresses" model
   const schema = new Schema(
     {
       companyId: {
@@ -12,9 +13,6 @@ module.exports = function (app) {
       Street1: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
@@ -22,10 +20,6 @@ module.exports = function (app) {
       },
       Street2: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
@@ -33,10 +27,6 @@ module.exports = function (app) {
       },
       Poscode: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 0,
         maxLength: 1000,
         index: true,
@@ -44,10 +34,6 @@ module.exports = function (app) {
       },
       City: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
@@ -55,10 +41,6 @@ module.exports = function (app) {
       },
       State: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
@@ -66,10 +48,6 @@ module.exports = function (app) {
       },
       Province: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
@@ -77,10 +55,6 @@ module.exports = function (app) {
       },
       Country: {
         type: String,
-
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
         maxLength: 1000,
         index: true,
