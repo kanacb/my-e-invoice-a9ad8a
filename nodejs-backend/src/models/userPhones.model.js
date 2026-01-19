@@ -7,18 +7,18 @@ module.exports = function (app) {
     {
       userId: { type: Schema.Types.ObjectId, ref: "users" },
       countryCode: {
-        type: Number
+        type: Number,
       },
       operatorCode: {
-        type: Number
+        type: Number,
       },
       number: { type: Number, unique: true },
       type: {
         type: String,
-        required: false,
+
         enum: ["Land line", "Mobile", "Fax"],
       },
-      isDefault: { type: Boolean, required: false, default: true },
+      isDefault: { type: Boolean, default: true },
 
       createdBy: {
         type: Schema.Types.ObjectId,

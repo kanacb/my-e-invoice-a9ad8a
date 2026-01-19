@@ -9,7 +9,7 @@ module.exports = function (app) {
       details: { type: String, required: true },
       createdBy: { type: String, required: true },
       method: { type: String, required: true },
-      updatedBy: { type: String, required: false },
+      updatedBy: { type: String },
     },
     {
       timestamps: true,

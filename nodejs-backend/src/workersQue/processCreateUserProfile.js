@@ -73,7 +73,9 @@ const createUserProfile = (app) => {
         recipients: [job.data.email],
         data: {
           name: job.data.name,
-          projectLabel: process.env.PROJECT_LABEL ? process.env.PROJECT_NAME : null ,
+          projectLabel: process.env.PROJECT_LABEL
+            ? process.env.PROJECT_NAME
+            : null,
         },
         status: true,
         subject: "First Time Login",

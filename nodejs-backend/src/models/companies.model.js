@@ -2,38 +2,33 @@ module.exports = function (app) {
   const modelName = "companies";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for companies model
   const schema = new Schema(
     {
       name: {
         type: String,
         required: true,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       companyNo: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
+        required: true,
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       newCompanyNumber: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 100000000,
       },
       DateIncorporated: { type: Date, required: false },
-      isdefault: { type: Boolean, required: false, default: false },
+      isdefault: { type: Boolean, default: false },
 
       createdBy: {
         type: Schema.Types.ObjectId,

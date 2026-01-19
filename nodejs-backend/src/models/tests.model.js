@@ -8,7 +8,7 @@ module.exports = function (app) {
       stack: {
         type: String,
         maxLength: 1000,
-        index: true
+        index: true,
       },
       service: {
         type: String,
@@ -16,12 +16,12 @@ module.exports = function (app) {
         index: true,
         trim: true,
       },
-      passed: { type: Number, required: false, min: 0, max: 10000 },
-      failed: { type: Number, required: false, min: 0, max: 10000 },
+      passed: { type: Number, min: 0, max: 10000 },
+      failed: { type: Number, min: 0, max: 10000 },
       notes: {
         type: String,
         maxLength: 1000,
-        index: true
+        index: true,
       },
 
       createdBy: {

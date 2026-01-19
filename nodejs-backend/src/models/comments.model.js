@@ -16,7 +16,7 @@ module.exports = function (app) {
       },
       resolved: {
         type: Boolean,
-        required: false,
+
         default: false,
       },
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },

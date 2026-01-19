@@ -4,10 +4,14 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      dynaLoader: { type: Schema.Types.ObjectId, ref: "dyna_loader" },
+      dynaLoader: {
+        type: Schema.Types.ObjectId,
+        ref: "dyna_loader",
+        required: true,
+      },
       from: {
         type: String,
-        required: false,
+        required: true,
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -19,7 +23,7 @@ module.exports = function (app) {
       fromType: { type: Schema.Types.Mixed, required: true },
       to2: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -30,7 +34,7 @@ module.exports = function (app) {
       },
       toType: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -42,7 +46,7 @@ module.exports = function (app) {
       },
       fromService: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -53,7 +57,7 @@ module.exports = function (app) {
       },
       toService: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -65,7 +69,7 @@ module.exports = function (app) {
       },
       toRefService: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -76,7 +80,7 @@ module.exports = function (app) {
       },
       identifierFieldName: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,

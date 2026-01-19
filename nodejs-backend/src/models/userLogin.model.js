@@ -6,7 +6,7 @@ module.exports = function (app) {
   const schema = new Schema(
     {
       loginEmail: { type: String },
-      code: { type: Number, required: false, min: 0, max: 1000000 },
+      code: { type: Number, min: 0, max: 1000000 },
       access: { type: String },
       sendMailCounter: { type: Number, default: 0 },
     },

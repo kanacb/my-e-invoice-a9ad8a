@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "prompts";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // define the schema for prompts model
   const schema = new Schema(
     {
       sessionid: {

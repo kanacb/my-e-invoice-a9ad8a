@@ -7,7 +7,7 @@ module.exports = function (app) {
     {
       ticket: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -18,7 +18,7 @@ module.exports = function (app) {
       },
       project: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -29,7 +29,7 @@ module.exports = function (app) {
       },
       title: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -40,7 +40,7 @@ module.exports = function (app) {
       },
       description: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -51,24 +51,24 @@ module.exports = function (app) {
       },
       status: {
         type: String,
-        required: false,
+
         enum: ["open", "closed", "inprogress", "reopened"],
       },
       priority: {
         type: String,
-        required: false,
+
         enum: ["high", "medium", "low", "critical"],
       },
       type: {
         type: String,
-        required: false,
+
         enum: ["bug", "feature", "task"],
       },
       reporter: { type: Schema.Types.ObjectId, ref: "users" },
       assignee: { type: Schema.Types.ObjectId, ref: "users" },
       closed: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,

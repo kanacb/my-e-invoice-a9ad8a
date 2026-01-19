@@ -5,6 +5,7 @@ module.exports = function (app) {
   const schema = new Schema(
     {
       classificationCode: {
+        required: true,
         type: String,
         minLength: 2,
         maxLength: 1000,

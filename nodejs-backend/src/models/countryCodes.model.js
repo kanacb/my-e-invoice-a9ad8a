@@ -2,10 +2,12 @@ module.exports = function (app) {
   const modelName = "country_codes";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for countryCodes model
   const schema = new Schema(
     {
       countryCode: {
         type: String,
+        required: true,
         minLength: 2,
         maxLength: 1000,
         index: true,

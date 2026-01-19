@@ -7,7 +7,7 @@ module.exports = function (app) {
     {
       serviceName: {
         type: String,
-        required: true
+        required: true,
       },
       expiry: { type: Date, required: false },
       createdBy: {

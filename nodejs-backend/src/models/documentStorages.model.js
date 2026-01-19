@@ -15,7 +15,7 @@ module.exports = function (app) {
         index: false,
         trim: false,
       },
-      size: { type: Number, required: false, max: 1000000 },
+      size: { type: Number, max: 1000000 },
       path: {
         type: String,
         required: true,
@@ -27,7 +27,7 @@ module.exports = function (app) {
         trim: false,
       },
       lastModifiedDate: { type: Date, required: false },
-      lastModified: { type: Number, required: false, max: 10000000 },
+      lastModified: { type: Number, max: 10000000 },
       eTag: {
         type: String,
         required: true,

@@ -4,26 +4,30 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      companyId: { type: Schema.Types.ObjectId, ref: "companies" },
+      companyId: {
+        type: Schema.Types.ObjectId,
+        ref: "companies",
+        required: true,
+      },
       countryCode: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 100000000,
       },
       operatorCode: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 100000000,
       },
-      number: { type: Number, required: false, min: 0, max: 100000000 },
+      number: { type: Number, min: 0, max: 100000000 },
       type: {
         type: String,
-        required: false,
+
         enum: ["Land line", "Mobile", "Fax"],
       },
-      isDefault: { type: Boolean, required: false, default: false },
+      isDefault: { type: Boolean, default: false },
 
       createdBy: {
         type: Schema.Types.ObjectId,

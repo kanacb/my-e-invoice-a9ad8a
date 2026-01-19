@@ -1,4 +1,4 @@
-const {Teams } = require("./teams.class");
+const { Teams } = require("./teams.class");
 const createModel = require("../../models/team.model");
 const hooks = require("./teams.hooks");
 

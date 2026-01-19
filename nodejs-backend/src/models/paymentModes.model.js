@@ -6,6 +6,7 @@ module.exports = function (app) {
     {
       paymentMode: {
         type: String,
+        required: true,
         minLength: 2,
         maxLength: 1000,
         index: true,

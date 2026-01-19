@@ -4,9 +4,14 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      buyersName: { type: Schema.Types.ObjectId, ref: "companies" },
+      buyersName: {
+        type: Schema.Types.ObjectId,
+        ref: "companies",
+        required: true,
+      },
       buyersTin: {
         type: String,
+        required: true,
         minLength: 2,
         maxLength: 1000,
         index: true,
@@ -14,6 +19,7 @@ module.exports = function (app) {
       },
       buyersSstRegistrationNumber: {
         type: String,
+
         minLength: 2,
         maxLength: 1000,
         index: true,
@@ -51,7 +57,7 @@ module.exports = function (app) {
       },
       buyersAddressPostalZone: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 1000000,
       },
@@ -61,14 +67,14 @@ module.exports = function (app) {
       },
       buyersContactNumber: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 1000000,
       },
       invoiceCurrency: { type: Schema.Types.ObjectId, ref: "currency_codes" },
       currencyExchangeRate: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 1000000,
       },

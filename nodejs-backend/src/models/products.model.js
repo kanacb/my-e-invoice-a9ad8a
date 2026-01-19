@@ -6,13 +6,14 @@ module.exports = function (app) {
     {
       productName: {
         type: String,
+        required: true,
         minLength: 2,
         maxLength: 1000,
         index: true,
         trim: true,
       },
-      quantity: { type: Number, required: false, min: 0, max: 1000000 },
-      unitPrice: { type: Number, required: false, min: 0, max: 1000000 },
+      quantity: { type: Number, min: 0, max: 1000000 },
+      unitPrice: { type: Number, min: 0, max: 1000000 },
       measurement: { type: Schema.Types.ObjectId, ref: "measurements" },
       invoiceId: { type: Schema.Types.ObjectId, ref: "invoices" },
 

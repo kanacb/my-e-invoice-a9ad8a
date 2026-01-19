@@ -41,10 +41,10 @@ module.exports = function (app) {
         index: false,
         trim: false,
       },
-      status: { type: Boolean, required: false, default: false },
+      status: { type: Boolean, default: false },
       sendEmailCounter: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 1000000,
         default: 0,

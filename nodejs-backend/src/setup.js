@@ -58,9 +58,9 @@ const getSuperRole = (data) => {
     throw new Error("Roles data not found");
   }
   const role = _.find(roles.data, { name: "Super" });
-  if(!role) {
+  if (!role) {
     throw new Error("Super role not found");
-  } 
+  }
   return role._id;
 };
 

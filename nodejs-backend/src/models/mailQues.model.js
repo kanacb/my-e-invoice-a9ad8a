@@ -4,10 +4,10 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      name: { type: String },
-      from: { type: String },
-      recipients: { type: [String] },
-      status: { type: Boolean, required: false, default: false },
+      name: { type: String, required: true },
+      from: { type: String, required: true },
+      recipients: { type: [String], required: true },
+      status: { type: Boolean, default: false },
       data: { type: Schema.Types.Mixed },
       templateId: { type: String, required: true },
       subject: { type: String, required: true },

@@ -4,7 +4,11 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      departmentId: { type: Schema.Types.ObjectId, ref: "departments" },
+      departmentId: {
+        type: Schema.Types.ObjectId,
+        ref: "departments",
+        required: true,
+      },
       employeeId: { type: Schema.Types.ObjectId, ref: "employees" },
 
       createdBy: {

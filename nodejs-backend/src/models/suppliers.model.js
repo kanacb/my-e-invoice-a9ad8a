@@ -85,7 +85,7 @@ module.exports = function (app) {
       },
       suppliersBankAccountNumber: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 1000000,
       },
@@ -96,7 +96,7 @@ module.exports = function (app) {
         index: true,
         trim: true,
       },
-      prePaymentAmount: { type: Number, required: false, min: 0, max: 1000000 },
+      prePaymentAmount: { type: Number, min: 0, max: 1000000 },
       prePaymentDate: { type: Date, required: false },
       prePaymentReferenceNumber: {
         type: String,

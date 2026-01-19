@@ -6,8 +6,9 @@ module.exports = function (app) {
     {
       phoneNumberPrefix: {
         type: String,
-        minLength: 2,
-        maxLength: 1000,
+        required: true,
+        minLength: 0,
+        maxLength: 100,
         index: true,
         trim: true,
       },

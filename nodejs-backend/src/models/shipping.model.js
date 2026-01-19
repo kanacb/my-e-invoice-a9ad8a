@@ -2,12 +2,18 @@ module.exports = function (app) {
   const modelName = "shipping";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for shipping model
   const schema = new Schema(
     {
-      shippingRecipientsName: { type: Schema.Types.ObjectId, ref: "companies" },
+      shippingRecipientsName: {
+        type: Schema.Types.ObjectId,
+        ref: "companies",
+        required: true,
+      },
       shippingRecipientsAddressCountryName: {
         type: Schema.Types.ObjectId,
         ref: "country_codes",
+        required: true,
       },
       shippingRecipientsAddressStateName: {
         type: Schema.Types.ObjectId,
@@ -21,9 +27,8 @@ module.exports = function (app) {
       },
       shippingRecipientsAddressPostalZone: {
         type: Number,
-        required: false,
         min: 0,
-        max: 10000000,
+        max: 100000,
       },
       shippingRecipientsTin: {
         type: String,

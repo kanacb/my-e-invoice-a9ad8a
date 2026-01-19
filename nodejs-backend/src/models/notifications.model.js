@@ -16,7 +16,7 @@ module.exports = function (app) {
       },
       path: {
         type: String,
-        required: false,
+
         unique: false,
       },
       read: { type: Boolean, required: false },
@@ -25,12 +25,10 @@ module.exports = function (app) {
       createdBy: {
         type: Schema.Types.ObjectId,
         ref: "users",
-        required: false,
       },
       updatedBy: {
         type: Schema.Types.ObjectId,
         ref: "users",
-        required: false,
       },
     },
     {

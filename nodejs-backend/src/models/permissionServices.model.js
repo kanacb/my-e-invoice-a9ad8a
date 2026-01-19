@@ -6,29 +6,26 @@ module.exports = function (app) {
     {
       service: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        minLength: 3,
-        maxLength: 100000000,
+        required: true,
+        minLength: 0,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
-      create: { type: Boolean, required: false, default: true },
+      create: { type: Boolean, default: true },
       read: {
         type: String,
-        required: false,
+
         enum: ["all", "own", "subordinates"],
       },
       update: {
         type: String,
-        required: false,
+
         enum: ["all", "own", "subordinate"],
       },
       delete: {
         type: String,
-        required: false,
+
         enum: ["all", "own", "subordinate"],
       },
       profile: { type: Schema.Types.ObjectId, ref: "profiles" },

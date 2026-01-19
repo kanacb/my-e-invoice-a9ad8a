@@ -4,41 +4,41 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      roleId: { type: Schema.Types.ObjectId, ref: "roles" },
+      roleId: { type: Schema.Types.ObjectId, ref: "roles", required: true },
       name: {
         type: String,
-        required: false,
+        required: true,
         unique: false,
         lowercase: false,
         uppercase: false,
         minLength: 3,
-        maxLength: 100000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       description: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
         minLength: 3,
-        maxLength: 100000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       abbr: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
         minLength: 2,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
-      isDefault: { type: Boolean, required: false, default: false },
+      isDefault: { type: Boolean, default: false },
     },
     {
       timestamps: true,

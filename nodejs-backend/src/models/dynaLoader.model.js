@@ -6,7 +6,7 @@ module.exports = function (app) {
     {
       from: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
@@ -17,7 +17,7 @@ module.exports = function (app) {
       },
       to2: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,

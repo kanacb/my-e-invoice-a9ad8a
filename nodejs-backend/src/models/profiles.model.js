@@ -2,6 +2,7 @@ module.exports = function (app) {
   const modelName = "profiles";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // define the schema for profiles model
   const schema = new Schema(
     {
       name: {
@@ -20,29 +21,19 @@ module.exports = function (app) {
       },
       image: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
-        index: false,
-        trim: false,
       },
       bio: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
+
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
-        trim: true,
       },
       department: { type: Schema.Types.ObjectId, ref: "departments" },
       hod: { type: Boolean, required: true, default: false },
       section: { type: Schema.Types.ObjectId, ref: "sections" },
       hos: { type: Boolean, required: true, default: false },
-      role: { type: Schema.Types.ObjectId, required: false, ref: "roles" },
+      role: { type: Schema.Types.ObjectId, required: true, ref: "roles" },
       position: {
         type: Schema.Types.ObjectId,
         required: true,
@@ -53,12 +44,12 @@ module.exports = function (app) {
       branch: { type: Schema.Types.ObjectId, ref: "branches" },
       skills: {
         type: [String],
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,
         minLength: 3,
-        maxLength: 100000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },

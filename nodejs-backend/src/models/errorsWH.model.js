@@ -4,7 +4,7 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      date: { type: Date, required: false },
+      date: { type: Date, required: true },
       details: { type: Schema.Types.Mixed, required: false },
 
       createdBy: {

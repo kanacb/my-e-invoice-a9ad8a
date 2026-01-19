@@ -1,32 +1,29 @@
+
+
 module.exports = function (app) {
   const modelName = "roles";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for roles model
   const schema = new Schema(
     {
       name: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
+        required: true,
+        unique: true,
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       description: {
         type: String,
-        required: false,
-        unique: false,
-        lowercase: false,
-        uppercase: false,
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
-      isDefault: { type: Boolean, required: false, default: false },
+      isDefault: { type: Boolean, default: false },
     },
     {
       timestamps: true,

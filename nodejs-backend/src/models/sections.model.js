@@ -2,32 +2,32 @@ module.exports = function (app) {
   const modelName = "sections";
   const mongooseClient = app.get("mongooseClient");
   const { Schema } = mongooseClient;
+  // schema for sections model
   const schema = new Schema(
     {
       departmentId: { type: Schema.Types.ObjectId, ref: "departments" },
       name: {
         type: String,
-        required: false,
-        unique: false,
+        required: true,
+        unique: true,
         lowercase: false,
         uppercase: false,
         minLength: 3,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
       code: {
         type: String,
-        required: false,
-        unique: false,
+        unique: true,
         lowercase: false,
         uppercase: false,
         minLength: 2,
-        maxLength: 1000000,
+        maxLength: 1000,
         index: true,
         trim: true,
       },
-      isDefault: { type: Boolean, required: false, default: false },
+      isDefault: { type: Boolean, default: false },
 
       createdBy: {
         type: Schema.Types.ObjectId,

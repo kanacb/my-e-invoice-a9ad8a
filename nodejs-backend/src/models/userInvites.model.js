@@ -16,21 +16,19 @@ module.exports = function (app) {
         index: false,
         trim: false,
       },
-      status: { type: Boolean, required: false, default: false },
-      code: { type: Number, required: false, min: 0, max: 1000000 },
+      status: { type: Boolean, default: false },
+      code: { type: Number, min: 0, max: 1000000 },
       position: {
         type: Schema.Types.ObjectId,
         ref: "positions",
-        required: false,
       },
       role: {
         type: Schema.Types.ObjectId,
         ref: "roles",
-        required: false,
       },
       sendMailCounter: {
         type: Number,
-        required: false,
+
         min: 0,
         max: 10000000,
         default: 0,

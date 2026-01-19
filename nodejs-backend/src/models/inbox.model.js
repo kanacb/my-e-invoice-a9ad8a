@@ -4,8 +4,8 @@ module.exports = function (app) {
   const { Schema } = mongooseClient;
   const schema = new Schema(
     {
-      from: { type: Schema.Types.ObjectId, ref: "users" },
-      toUser: { type: Schema.Types.ObjectId, ref: "users" },
+      from: { type: Schema.Types.ObjectId, ref: "users", required: true },
+      toUser: { type: Schema.Types.ObjectId, ref: "users", required: true },
       subject: {
         type: String,
         required: true,
@@ -26,15 +26,15 @@ module.exports = function (app) {
       },
       service: {
         type: String,
-        required: true,
+
         unique: false,
         lowercase: false,
         uppercase: false,
         index: false,
         trim: false,
       },
-      read: { type: Boolean, required: false, default: false },
-      flagged: { type: Boolean, required: false, default: false },
+      read: { type: Boolean, default: false },
+      flagged: { type: Boolean, default: false },
       sent: { type: Date, required: false },
 
       createdBy: { type: Schema.Types.ObjectId, ref: "users", required: true },

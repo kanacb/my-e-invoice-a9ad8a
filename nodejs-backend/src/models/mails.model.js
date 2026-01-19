@@ -8,7 +8,7 @@ module.exports = function (app) {
       sentStatus: { type: Boolean, required: false },
       mailType: {
         type: String,
-        required: false,
+
         unique: false,
         lowercase: false,
         uppercase: false,

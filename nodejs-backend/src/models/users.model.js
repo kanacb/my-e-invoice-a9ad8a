@@ -38,7 +38,7 @@ module.exports = function (app) {
         index: true,
         trim: true,
       },
-      status: { type: Boolean, required: false, default: true },
+      status: { type: Boolean, default: true },
     },
     {
       timestamps: true,
