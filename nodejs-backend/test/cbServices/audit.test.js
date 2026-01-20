@@ -10,17 +10,17 @@ let usersRefData = [
 ];
 
 const usersService = app.service("users").Model;
-const service = app.service("identifyType").Model;
+const service = app.service("audits").Model;
 const patch = {
-  description: "identifyType updated",
+  description: "audits updated",
 };
 let testData = [];
 let usersRefDataResults = [];
 
-describe("identifyType service", () => {
+describe("audits service", () => {
   let results = [];
   it("registered the service", () => {
-    assert.ok(service, "Registered the service (identifyType)");
+    assert.ok(service, "Registered the service (audits)");
   });
 
   it("create multi ref users", async () => {
@@ -37,16 +37,18 @@ describe("identifyType service", () => {
     );
   });
 
-  it("create identifyType data", async () => {
+  it("create audits data", async () => {
     const standardUser = await usersService.findOne({
       email: "standard@example.com",
     });
 
-    // create a object array of identifyType test schema model
+    // create a object array of audits test schema model
     testData = [
       {
-        identifyType: "Admin",
-        description: "Administrator role with full permissions",
+        serviceName: "jobStationTickets",
+        action: "patch",
+        details: JSON.stringify({"ticketId":"6822edf3e91deefc221e1077","incomingRemarks":"start work","uploadOfPictureBeforeRepair":["6822ef9ee91deefc221e19aa"],"status":"In Progress"}),
+        method: "patch",
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
       }
@@ -56,31 +58,31 @@ describe("identifyType service", () => {
       throw err;
     });
     if (!results || results.length === 0)
-      assert.fail("identifyType creation failed!");
-    assert.ok(service, `Created (${results.length} identifyType) success!`);
+      assert.fail("audits creation failed!");
+    assert.ok(service, `Created (${results.length} audits) success!`);
   });
 
-  it("verify identifyType creation", async () => {
+  it("verify audits creation", async () => {
     for (let i = 0; i < results.length; i++) {
       const exists = await service.findById(results[i]._id);
       assert.ok(exists, `userPhone ${results[i]} exists!`);
     }
   });
 
-  it("patch identifyType", async () => {
+  it("patch audits", async () => {
     for (let i = 0; i < results.length; i++) {
       const patched = await service.findByIdAndUpdate(results[i]._id, patch, {
         new: true,
       } );
-      assert.ok(patched, `identifyType ${patched} patched!`);
+      assert.ok(patched, `audits ${patched} patched!`);
       assert.strictEqual(patched.type, patch.type);
     }
   });
 
-  it("remove all identifyType test data", async () => {
+  it("remove all audits test data", async () => {
     for (let i = 0; i < results.length; i++) {
       const removed = await service.findByIdAndDelete(results[i]._id);
-      assert.ok(removed, `identifyType data ${results[i].number} removed!`);
+      assert.ok(removed, `audits data ${results[i].number} removed!`);
     }
   });
 

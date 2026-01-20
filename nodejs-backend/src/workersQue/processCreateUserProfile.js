@@ -96,7 +96,7 @@ const createUserProfile = (app) => {
         name: "on_send_welcome_email",
         type: "userInvitationOnCreateOnLoginQues",
         from: "info@cloudbasha.com",
-        recipients: ["abirami@cloudbasha.com"],
+        recipients: ["admin@cloudbasha.com"],
         status: false,
         data: { ...job.data },
         subject: "login processing failed",
@@ -121,7 +121,9 @@ const createUserProfile = (app) => {
     after: {
       create: async (context) => {
         const { result } = context;
-        await jobQueue.add("createUserProfile", result);
+        console.log(context.data);
+        if (context.data.test === null)
+          await jobQueue.add("createUserProfile", result);
         return context;
       },
     },

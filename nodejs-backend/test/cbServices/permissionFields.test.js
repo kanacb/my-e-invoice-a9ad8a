@@ -29,6 +29,7 @@ let positionResults = [];
 let branchResults = [];
 let employeesResults = [];
 let permissionServicesResults = [];
+let profilesResults = [];
 
 describe("permissionFields service", () => {
   let results = [];
@@ -191,7 +192,7 @@ describe("permissionFields service", () => {
         updatedBy: standardUser._id,
       },
     ];
-    const profilesResults = await profilesService
+    profilesResults = await profilesService
       .create(profilesTestData)
       .catch((err) => {
         console.error(err);
@@ -338,11 +339,38 @@ describe("permissionFields service", () => {
   });
 
   it("remove all user test data", async () => {
-    for (let i = 0; i < usersRefDataResults.length; i++) {
-      const removed = await usersService.findByIdAndDelete(
-        usersRefDataResults[i]._id,
-      );
-      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
-    }
+    const removed = Promise.all([
+      ...usersRefDataResults.map((item) =>
+        usersService.findByIdAndDelete(item._id),
+      ),
+      ...companyResults.map((item) =>
+        app.service("companies").Model.findByIdAndDelete(item._id),
+      ),
+      ...departmentResults.map((item) =>
+        app.service("departments").Model.findByIdAndDelete(item._id),
+      ),
+      ...sectionResults.map((item) =>
+        app.service("sections").Model.findByIdAndDelete(item._id),
+      ),
+      ...roleResults.map((item) =>
+        app.service("roles").Model.findByIdAndDelete(item._id),
+      ),
+      ...positionResults.map((item) =>
+        app.service("positions").Model.findByIdAndDelete(item._id),
+      ),
+      ...branchResults.map((item) =>
+        app.service("branches").Model.findByIdAndDelete(item._id),
+      ),
+      ...employeesResults.map((item) =>
+        app.service("employees").Model.findByIdAndDelete(item._id),
+      ),
+      ...permissionServicesResults.map((item) =>
+        app.service("permissionServices").Model.findByIdAndDelete(item._id),
+      ),
+      ...profilesResults.map((item) =>
+        app.service("profiles").Model.findByIdAndDelete(item._id),
+      ),
+    ]);
+    assert.ok(removed, "User data removed!");
   });
 });

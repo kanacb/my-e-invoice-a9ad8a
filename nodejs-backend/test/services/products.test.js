@@ -22,6 +22,7 @@ let teamsResults = [];
 let companyResults = [];
 let eInvoiceTypesResults = [];
 let countryCodesResults = [];
+let invoiceResults = [];
 
 describe("products service", () => {
   let results = [];
@@ -48,21 +49,21 @@ describe("products service", () => {
       email: "standard@example.com",
     });
 
-    // create a einvoiceTypes test schema model 
+    // create a einvoiceTypes test schema model
     const eInvoiceTypesService = app.service("eInvoiceTypes").Model;
     const eInvoiceTypesTestData = [
-      { 
+      {
         eInvoiceTypes: "Type A",
         createdBy: standardUser._id,
-        updatedBy: standardUser._id,  
+        updatedBy: standardUser._id,
       },
-    ];    
+    ];
     eInvoiceTypesResults = await eInvoiceTypesService
       .create(eInvoiceTypesTestData)
       .catch((err) => {
         console.error(err);
         throw err;
-      }); 
+      });
 
     // create measurements test schema model
     const measurementsService = app.service("measurements").Model;
@@ -111,23 +112,22 @@ describe("products service", () => {
       throw err;
     });
 
-
     // create country code test data
     const countryCodesService = app.service("countryCodes").Model;
     const countryCodesTestData = [
       {
         countryCode: "US",
-        createdBy: standardUser._id,  
+        createdBy: standardUser._id,
         updatedBy: standardUser._id,
       },
-    ];  
+    ];
     countryCodesResults = await countryCodesService
       .create(countryCodesTestData)
       .catch((err) => {
         console.error(err);
         throw err;
-      }); 
-    
+      });
+
     // create company test data
     const companyTestData = [
       {
@@ -192,7 +192,7 @@ describe("products service", () => {
         updatedBy: standardUser._id,
       },
     ];
-    const invoiceResults = await invoicesService
+    invoiceResults = await invoicesService
       .create(invoiceTestData)
       .catch((err) => {
         console.error(err);
@@ -254,7 +254,7 @@ describe("products service", () => {
 
     await Promise.all([
       ...companyResults.map((item) =>
-        app.service("companies").Model.findByIdAndDelete(item._id),   
+        app.service("companies").Model.findByIdAndDelete(item._id),
       ),
       ...countryCodesResults.map((item) =>
         app.service("countryCodes").Model.findByIdAndDelete(item._id),
@@ -264,13 +264,16 @@ describe("products service", () => {
       ),
       ...measurementResults.map((item) =>
         app.service("measurements").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...taxTypesResults.map((item) =>
         app.service("taxTypes").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...teamsResults.map((item) =>
         app.service("teams").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
+      ...invoiceResults.map((item) =>
+        app.service("invoices").Model.findByIdAndDelete(item._id),
+      ),
     ]);
   });
 });

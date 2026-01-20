@@ -28,6 +28,7 @@ let roleResults = [];
 let positionResults = [];
 let branchResults = [];
 let employeesResults = [];
+let profilesResults = [];
 
 describe("permissionServices service", () => {
   let results = [];
@@ -191,7 +192,7 @@ describe("permissionServices service", () => {
         updatedBy: standardUser._id,
       },
     ];
-    const profilesResults = await profilesService
+    profilesResults = await profilesService
       .create(profilesTestData)
       .catch((err) => {
         console.error(err);
@@ -294,15 +295,11 @@ describe("permissionServices service", () => {
     }
   });
 
-  it("remove all user test data", async () => {
-    for (let i = 0; i < usersRefDataResults.length; i++) {
-      const removed = await usersService.findByIdAndDelete(
-        usersRefDataResults[i]._id,
-      );
-      assert.ok(removed, `User data ${usersRefDataResults[i].name} removed!`);
-    }
-
-    await Promise.all([
+  it("remove all test data", async () => {
+    const removed = await Promise.all([
+      ...usersRefDataResults.map((item) =>
+        usersService.findByIdAndDelete(item._id),
+      ),
       ...companyResults.map((item) =>
         app.service("companies").Model.findByIdAndDelete(item._id),
       ),
@@ -324,6 +321,10 @@ describe("permissionServices service", () => {
       ...employeesResults.map((item) =>
         app.service("employees").Model.findByIdAndDelete(item._id),
       ),
+      ...profilesResults.map((item) =>
+        app.service("profiles").Model.findByIdAndDelete(item._id),
+      ),
     ]);
+    assert.ok(removed, "User data removed!");
   });
 });

@@ -230,6 +230,9 @@ describe("profiles service", () => {
       ...companyResults.map((item) =>
         app.service("companies").Model.findByIdAndDelete(item._id),
       ),
+      ...branchResults.map((item) =>
+        app.service("branches").Model.findByIdAndDelete(item._id),
+      ),
       ...departmentResults.map((item) =>
         app.service("countryCodes").Model.findByIdAndDelete(item._id),
       ),

@@ -8,8 +8,8 @@ module.exports = function (app) {
       serviceName: { type: String, required: true },
       action: { type: String, required: true },
       details: { type: String, required: true },
-      createdBy: { type: String, required: true },
       method: { type: String, required: true },
+      createdBy: { type: String, required: true },
       updatedBy: { type: String },
     },
     {

@@ -34,6 +34,7 @@ describe("authentication", () => {
       const { user, accessToken } = await app.service("authentication").create({
         strategy: "local",
         ...userInfo,
+        test: true,
       });
 
       assert.ok(accessToken, "Created access token for user");

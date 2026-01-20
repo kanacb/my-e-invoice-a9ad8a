@@ -117,7 +117,7 @@ describe("buyers service", () => {
     // create currency codes
     const currencyCodesTestData = [
       {
-        currencyCode: "MYR",
+        currencyCode: "MYR2",
         createdBy: standardUser._id,
         updatedBy: standardUser._id,
       },
@@ -347,9 +347,6 @@ describe("buyers service", () => {
 
   it("remove all user test data", async () => {
     await Promise.all([
-      ...usersRefDataResults.map((item) =>
-        usersService.findByIdAndDelete(item._id),
-      ),
       ...usersRefDataResults.map((item) =>
         usersService.findByIdAndDelete(item._id),
       ),

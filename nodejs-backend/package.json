@@ -26,7 +26,8 @@
     "scripts": {
         "dev": "nodemon src/",
         "start": "node src/",
-        "test": "npm run lint && cross-env NODE_ENV=sit npm run mocha",
+        "test:sit": "npm run lint && cross-env DOTENV_CONFIG_PATH=.env_sit mocha -r dotenv/config",
+        "test" : "npm run lint && npm run mocha",
         "lint": "eslint src/. test/. --config .eslintrc.json --fix",
         "format": "prettier ./src --write ",
         "format:check": "prettier ./src --check \"*/.{js,ts,d.ts}\"",

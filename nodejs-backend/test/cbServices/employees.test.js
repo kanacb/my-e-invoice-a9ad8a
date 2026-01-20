@@ -28,6 +28,7 @@ let sectionResults = [];
 let roleResults = [];
 let positionResults = [];
 let branchResults = [];
+let profilesResults = [];
 
 describe("employees service", () => {
   let results = [];
@@ -190,7 +191,7 @@ describe("employees service", () => {
         updatedBy: standardUser._id,
       },
     ];
-    const profilesResults = await profilesService
+    profilesResults = await profilesService
       .create(profilesTestData)
       .catch((err) => {
         console.error(err);
@@ -267,7 +268,7 @@ describe("employees service", () => {
 
     await Promise.all([
       ...companyResults.map((item) =>
-        app.service("companies").Model.findByIdAndDelete(item._id),   
+        app.service("companies").Model.findByIdAndDelete(item._id),
       ),
       ...departmentResults.map((item) =>
         app.service("departments").Model.findByIdAndDelete(item._id),
@@ -277,13 +278,16 @@ describe("employees service", () => {
       ),
       ...roleResults.map((item) =>
         app.service("roles").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...positionResults.map((item) =>
         app.service("positions").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
       ...branchResults.map((item) =>
         app.service("branches").Model.findByIdAndDelete(item._id),
-      ),  
+      ),
+      ...profilesResults.map((item) =>
+        app.service("profiles").Model.findByIdAndDelete(item._id),
+      ),
     ]);
   });
 });

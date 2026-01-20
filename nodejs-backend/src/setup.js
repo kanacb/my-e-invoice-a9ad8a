@@ -5,7 +5,7 @@ const _ = require("lodash");
 const mongoose = require("mongoose");
 const console = require("console");
 // const { decryptData } = require("./utils/encryption");
-const userEmails = ["kana@cloudbasha.com"];
+const userEmails = ["kana@cloudbasha.com","admin@cloudbasha.com"];
 
 // Your setup function
 module.exports = async (app) => {

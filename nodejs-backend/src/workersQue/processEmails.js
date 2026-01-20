@@ -6,7 +6,7 @@ const sendMailService = require("../services/nodeMailer/sendMailService");
 const mailQues = new Queue("mailQues", { connection });
 
 const createMailQueWorker = (app) => {
-  const superAdmin = "abirami@cloudbasha.com";
+  const superAdmin = "kana@cloudbasha.com";
   const worker = new Worker(
     "mailQues",
     async (job) => {
